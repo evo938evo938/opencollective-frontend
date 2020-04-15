@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { Flex, Box } from '@rebass/grid';
 import styled from 'styled-components';
 import { defineMessages, injectIntl } from 'react-intl';
+import { graphql } from '@apollo/react-hoc';
 
+import { API_V2_CONTEXT, gqlV2 } from '../../lib/graphql/helpers';
 import umbrellaIllustration from '../../public/static/images/create-collective/umbrellaPot.png';
 import climateIllustration from '../../public/static/images/create-collective/climateIllustration.png';
 import { H1, H2, H3, P } from '../Text';
@@ -11,6 +13,7 @@ import Container from '../Container';
 import StyledButton from '../StyledButton';
 import ExternalLink from '../ExternalLink';
 import HostCollectiveCard from './HostCollectiveCard';
+import Loading from '../Loading';
 
 const FISCAL_HOST_LINK = 'https://docs.opencollective.com/help/fiscal-hosts/become-a-fiscal-host';
 
@@ -39,6 +42,7 @@ class ApplyToHost extends React.Component {
     intl: PropTypes.object.isRequired,
     hosts: PropTypes.array.isRequired,
     onChange: PropTypes.func,
+    data: PropTypes.object,
   };
 
   constructor(props) {
@@ -70,7 +74,13 @@ class ApplyToHost extends React.Component {
   }
 
   render() {
-    const { hosts, intl, onChange } = this.props;
+    const { intl, onChange, data } = this.props;
+
+    if (!data.hosts || !data.hosts.nodes) {
+      return <Loading />;
+    }
+
+    const hosts = [...data.hosts.nodes];
 
     return (
       <Fragment>
@@ -129,4 +139,40 @@ class ApplyToHost extends React.Component {
   }
 }
 
-export default injectIntl(ApplyToHost);
+const getHostsQuery = gqlV2`
+query getHosts($limit: Int) {
+  hosts(limit: $limit) {
+    totalCount
+    nodes {
+      id
+      createdAt
+      type
+      name
+      slug
+      description
+      currency
+      totalHostedCollectives
+      hostFeePercent
+      stats {
+        yearlyBudget {
+          value
+        }
+      }
+      members {
+        totalCount
+      }
+    }
+  }
+}
+`;
+
+export const addHostsData = graphql(getHostsQuery, {
+  options: {
+    variables: {
+      limit: 1000,
+    },
+    context: API_V2_CONTEXT,
+  },
+});
+
+export default injectIntl(addHostsData(ApplyToHost));

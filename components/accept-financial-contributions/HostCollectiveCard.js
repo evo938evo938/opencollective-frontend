@@ -4,6 +4,7 @@ import { Flex } from '@rebass/grid';
 import { FormattedDate, useIntl, defineMessages, FormattedMessage } from 'react-intl';
 import { graphql } from '@apollo/react-hoc';
 import { get } from 'lodash';
+import { useMutation } from '@apollo/react-hooks';
 
 import { API_V2_CONTEXT, gqlV2 } from '../../lib/graphql/helpers';
 import { getErrorFromGraphqlException } from '../../lib/errors';
@@ -65,30 +66,40 @@ const messages = defineMessages({
   },
 });
 
+const applyToHostMutation = gqlV2`
+mutation applyToHost($collective: AccountReferenceInput!, $host: AccountReferenceInput!) {
+  applyToHost(collective: $collective, host: $host) {
+    id
+    slug
+    host {
+      id
+      slug
+    }
+  }
+}
+`;
+
 const HostCollectiveCard = ({ host, collective, onChange, ...props }) => {
   const [show, setShow] = useState(false);
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [checked, setChecked] = useState(false);
   const { formatMessage } = useIntl();
 
-  const date = new Date(host.createdAt);
-  const name = host.name;
+  const [applyToHost, { loading }] = useMutation(applyToHostMutation, {
+    context: API_V2_CONTEXT,
+    variables: {
+      collective: { legacyId: collective.id },
+      host: { id: host.id },
+    },
+  });
 
   const handleApplication = async () => {
     if (get(host, 'settings.tos') && !checked) {
       setError(formatMessage(messages.tosError));
       return;
     }
-    setLoading(true);
-    const collectiveInput = {
-      legacyId: collective.id,
-    };
-    const hostInput = {
-      legacyId: host.legacyId,
-    };
     try {
-      await props.applyToHost(collectiveInput, hostInput);
+      await applyToHost();
       Router.pushRoute('accept-financial-contributions', {
         slug: collective.slug,
         path: 'host',
@@ -101,7 +112,6 @@ const HostCollectiveCard = ({ host, collective, onChange, ...props }) => {
     } catch (err) {
       const errorMsg = getErrorFromGraphqlException(err).message;
       setError(errorMsg);
-      setLoading(false);
     }
   };
 
@@ -119,7 +129,7 @@ const HostCollectiveCard = ({ host, collective, onChange, ...props }) => {
           </Flex>
           <Flex data-cy="caption" mb={2} alignItems="flex-end">
             <P fontSize="LeadParagraph" fontWeight="bold">
-              {host.members.nodes.length}
+              {host.members.totalCount}
             </P>
             <P ml={2} fontSize="Caption">
               {formatMessage(messages.contributors)}
@@ -159,7 +169,7 @@ const HostCollectiveCard = ({ host, collective, onChange, ...props }) => {
               <Flex flexDirection="column">
                 <P>{formatMessage(messages.hostSince)}</P>
                 <P>
-                  <FormattedDate value={date} month="long" year="numeric" />
+                  <FormattedDate value={host.createdAt} month="long" year="numeric" />
                 </P>
               </Flex>
               <Flex flexDirection="column">
@@ -185,14 +195,14 @@ const HostCollectiveCard = ({ host, collective, onChange, ...props }) => {
                   label={
                     <FormattedMessage
                       id="acceptContributions.tos.label"
-                      defaultMessage="I agree with the {hostTosLink} of {name}."
+                      defaultMessage="I agree with the {hostTosLink} of {hostName}."
                       values={{
                         hostTosLink: (
                           <ExternalLink href={get(host, 'settings.tos')} openInNewTab>
                             <FormattedMessage id="tos" defaultMessage="terms of service" />
                           </ExternalLink>
                         ),
-                        name: name,
+                        hostName: host.name,
                       }}
                     />
                   }
@@ -243,31 +253,18 @@ HostCollectiveCard.propTypes = {
   host: PropTypes.object.isRequired,
   collective: PropTypes.object.isRequired,
   applyToHost: PropTypes.func.isRequired,
-  onChange: PropTypes.func,
+  onChange: PropTypes.func.isRequired,
 };
 
-const applyToHostMutation = gqlV2`
-mutation applyToHost($collective: AccountReferenceInput!, $host: AccountReferenceInput!) {
-  applyToHost(collective: $collective, host: $host) {
-    id
-    slug
-    host {
-      id
-      slug
-    }
-  }
-}
-`;
+// const addMutation = graphql(applyToHostMutation, {
+//   options: props => ({
+//     name: 'applyToHost',
+//     context: API_V2_CONTEXT,
+//     variables: {
+//       collective: { legacyId: props.collective.id },
+//       host: { id: props.host.id },
+//     },
+//   }),
+// });
 
-const addMutation = graphql(applyToHostMutation, {
-  options: {
-    context: API_V2_CONTEXT,
-  },
-  props: ({ mutate }) => ({
-    applyToHost: async (collectiveInput, hostInput) => {
-      return await mutate({ variables: { collective: collectiveInput, host: hostInput } });
-    },
-  }),
-});
-
-export default addMutation(HostCollectiveCard);
+export default HostCollectiveCard;

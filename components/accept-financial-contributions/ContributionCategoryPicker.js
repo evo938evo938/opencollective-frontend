@@ -92,17 +92,7 @@ class ContributionCategoryPicker extends React.Component {
                       section: 'host',
                     }}
                   >
-                    <StyledButton
-                      fontSize="13px"
-                      buttonStyle="dark"
-                      minHeight="36px"
-                      mt={[2, 3]}
-                      mb={3}
-                      px={4}
-                      onClick={() => {
-                        this.props.onChange('path', 'myself');
-                      }}
-                    >
+                    <StyledButton fontSize="13px" buttonStyle="dark" minHeight="36px" mt={[2, 3]} mb={3} px={4}>
                       {intl.formatMessage(this.messages.myself)}
                     </StyledButton>
                   </Link>
@@ -127,17 +117,7 @@ class ContributionCategoryPicker extends React.Component {
                       section: 'host',
                     }}
                   >
-                    <StyledButton
-                      fontSize="13px"
-                      buttonStyle="dark"
-                      minHeight="36px"
-                      mt={[2, 3]}
-                      mb={3}
-                      px={3}
-                      onClick={() => {
-                        this.props.onChange('path', 'organization');
-                      }}
-                    >
+                    <StyledButton fontSize="13px" buttonStyle="dark" minHeight="36px" mt={[2, 3]} mb={3} px={3}>
                       {intl.formatMessage(this.messages.organization)}
                     </StyledButton>
                   </Link>
@@ -161,17 +141,7 @@ class ContributionCategoryPicker extends React.Component {
                       path: 'host',
                     }}
                   >
-                    <StyledButton
-                      fontSize="13px"
-                      buttonStyle="dark"
-                      minHeight="36px"
-                      mt={[2, 3]}
-                      mb={3}
-                      px={3}
-                      onClick={() => {
-                        this.props.onChange('path', 'host');
-                      }}
-                    >
+                    <StyledButton fontSize="13px" buttonStyle="dark" minHeight="36px" mt={[2, 3]} mb={3} px={3}>
                       {intl.formatMessage(this.messages.host)}
                     </StyledButton>
                   </Link>
