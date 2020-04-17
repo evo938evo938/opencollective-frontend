@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import themeGet from '@styled-system/theme-get';
 import { Flex } from '../Grid';
 import { Search } from '@styled-icons/octicons/Search';
-import { FormattedMessage, injectIntl, defineMessages } from 'react-intl';
+import { FormattedMessage, useIntl, defineMessages } from 'react-intl';
 
 import { H4 } from '../Text';
 import Container from '../Container';
@@ -34,15 +34,19 @@ const messages = defineMessages({
 /**
  * Component for displaying list of public repositories
  */
-const GithubRepositories = ({ repositories, sendRepoInfo, intl, ...fieldProps }) => {
-  const [state, setState] = useState({ search: '', disabled: true, repoInfo: { type: 'repository' } });
+const GithubRepositories = ({ repositories, submitGithubInfo, ...fieldProps }) => {
+  const { formatMessage } = useIntl();
+  const [search, setSearch] = useState();
+  const [disabled, setDisabled] = useState(true);
+  const [githubInfo, setGithubInfo] = useState();
 
-  if (state.search) {
-    const test = new RegExp(escapeInput(state.search), 'i');
+  if (search) {
+    const test = new RegExp(escapeInput(search), 'i');
     repositories = repositories.filter(repository => repository.name.match(test));
   }
 
   const showSearch = true; // repositories.length >= 5;
+
   return (
     <Fragment>
       <StyledCard maxWidth={[300, 448, 500]}>
@@ -61,12 +65,9 @@ const GithubRepositories = ({ repositories, sendRepoInfo, intl, ...fieldProps })
               type="text"
               fontSize="Paragraph"
               lineHeight="Paragraph"
-              placeholder={intl.formatMessage(messages.filterByName)}
+              placeholder={formatMessage(messages.filterByName)}
               onChange={({ target }) => {
-                setState(state => ({
-                  ...state,
-                  search: target.value,
-                }));
+                setSearch(target.value);
               }}
               ml={2}
             />
@@ -86,15 +87,11 @@ const GithubRepositories = ({ repositories, sendRepoInfo, intl, ...fieldProps })
           options={repositories}
           onChange={({ value }) => {
             if (value.owner.type === 'User') {
-              setState(state => ({
-                ...state,
-                disabled: false,
-                repoInfo: {
-                  ...state.repoInfo,
-                  handle: `${value.owner.login}/${value.name}`,
-                  repo: value.name,
-                },
-              }));
+              setDisabled(false);
+              setGithubInfo({
+                handle: `${value.owner.login}/${value.name}`,
+                repo: value.name,
+              });
             }
           }}
           keyGetter="name"
@@ -108,25 +105,17 @@ const GithubRepositories = ({ repositories, sendRepoInfo, intl, ...fieldProps })
                   checked={checked}
                   changeRepoInfo={(type, value) => {
                     if (type === 'repository') {
-                      setState(state => ({
-                        ...state,
-                        disabled: false,
-                        repoInfo: {
-                          type,
-                          handle: `${value.owner.login}/${value.name}`,
-                          repo: value.name,
-                        },
-                      }));
+                      setDisabled(false);
+                      setGithubInfo({
+                        handle: `${value.owner.login}/${value.name}`,
+                        repo: value.name,
+                      });
                     } else {
-                      setState(state => ({
-                        ...state,
-                        disabled: false,
-                        repoInfo: {
-                          type,
-                          handle: value.owner.login,
-                          repo: value.name,
-                        },
-                      }));
+                      setDisabled(false);
+                      setGithubInfo({
+                        handle: value.owner.login,
+                        repo: value.name,
+                      });
                     }
                   }}
                 />
@@ -142,8 +131,8 @@ const GithubRepositories = ({ repositories, sendRepoInfo, intl, ...fieldProps })
           minHeight="36px"
           maxWidth="97px"
           buttonStyle="primary"
-          disabled={state.disabled}
-          onClick={() => sendRepoInfo(state.repoInfo)}
+          disabled={disabled}
+          onClick={() => submitGithubInfo(githubInfo)}
           m={2}
           px={[2, 3]}
         >
@@ -157,9 +146,7 @@ const GithubRepositories = ({ repositories, sendRepoInfo, intl, ...fieldProps })
 GithubRepositories.propTypes = {
   /** List of public repositories */
   repositories: PropTypes.array.isRequired,
-  /** @ignore from injectIntl */
-  intl: PropTypes.object,
-  sendRepoInfo: PropTypes.func,
+  submitGithubInfo: PropTypes.func.isRequired,
 };
 
-export default injectIntl(GithubRepositories);
+export default GithubRepositories;

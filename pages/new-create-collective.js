@@ -40,8 +40,6 @@ const CreateCollectivePage = ({ loadingLoggedInUser, LoggedInUser }) => {
     variables: { slug },
   });
 
-  console.log({ loading, error, data });
-
   if (loading || loadingLoggedInUser) {
     return <ErrorPage loading={true} />;
   }

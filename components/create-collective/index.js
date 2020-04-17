@@ -10,6 +10,7 @@ import { H1, P } from '../Text';
 import CreateCollectiveForm from './CreateCollectiveForm';
 import CollectiveCategoryPicker from './CollectiveCategoryPicker';
 import ConnectGithub from './ConnectGithub';
+import CreateOpenSourceCollective from './CreateOpenSourceCollective';
 import SignInOrJoinFree from '../SignInOrJoinFree';
 import MessageBox from '../MessageBox';
 import { withUser } from '../UserProvider';
@@ -19,13 +20,24 @@ import { getErrorFromGraphqlException } from '../../lib/errors';
 import { parseToBoolean } from '../../lib/utils';
 import { Router } from '../../server/pages';
 
+const messages = defineMessages({
+  joinOC: {
+    id: 'collective.create.join',
+    defaultMessage: 'Join Open Collective',
+  },
+  createOrSignIn: {
+    id: 'collective.create.createOrSignIn',
+    defaultMessage: 'Create an account (or sign in) to start a collective.',
+  },
+});
+
 class CreateCollective extends Component {
   static propTypes = {
     host: PropTypes.object,
     LoggedInUser: PropTypes.object, // from withUser
     refetchLoggedInUser: PropTypes.func.isRequired, // from withUser
     intl: PropTypes.object.isRequired,
-    createCollective: PropTypes.func,
+    createCollective: PropTypes.func.isRequired,
     router: PropTypes.object.isRequired,
   };
 
@@ -33,32 +45,12 @@ class CreateCollective extends Component {
     super(props);
 
     this.state = {
-      collective: {},
-      result: {},
-      github: null,
-      form: false,
       error: null,
-      status: null,
       creating: false,
+      githubInfo: null,
     };
 
     this.createCollective = this.createCollective.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-
-    this.messages = defineMessages({
-      joinOC: {
-        id: 'collective.create.join',
-        defaultMessage: 'Join Open Collective',
-      },
-      createOrSignIn: {
-        id: 'collective.create.createOrSignIn',
-        defaultMessage: 'Create an account (or sign in) to start a collective.',
-      },
-    });
-  }
-
-  handleChange(key, value) {
-    this.setState({ [key]: value });
   }
 
   async createCollective(collective) {
@@ -82,8 +74,8 @@ class CreateCollective extends Component {
     // prepare object
 
     collective.tags = [this.props.router.query.category];
-    if (this.state.github) {
-      collective.githubHandle = this.state.github.handle;
+    if (this.state.githubInfo) {
+      collective.githubHandle = this.state.githubInfo.handle;
     }
     delete collective.tos;
     delete collective.hostTos;
@@ -94,14 +86,10 @@ class CreateCollective extends Component {
         variables: {
           collective,
           host: this.props.host ? { slug: this.props.host.slug } : null,
-          automateApprovalWithGithub: this.state.github ? true : false,
+          automateApprovalWithGithub: this.state.githubInfo ? true : false,
         },
       });
       const newCollective = res.data.createCollective;
-      this.setState({
-        status: 'idle',
-        result: { success: 'Collective created successfully' },
-      });
       await this.props.refetchLoggedInUser();
       // don't show banner if we show the modal and vice versa
       if (parseToBoolean(process.env.ONBOARDING_MODAL) === true) {
@@ -121,7 +109,7 @@ class CreateCollective extends Component {
       }
     } catch (err) {
       const errorMsg = getErrorFromGraphqlException(err).message;
-      this.setState({ status: 'idle', error: errorMsg, creating: false });
+      this.setState({ error: errorMsg, creating: false });
     }
   }
 
@@ -158,12 +146,12 @@ class CreateCollective extends Component {
           <Flex flexDirection="column" p={4} mt={2}>
             <Box mb={3}>
               <H1 fontSize="H3" lineHeight="H3" fontWeight="bold" textAlign="center">
-                {intl.formatMessage(this.messages.joinOC)}
+                {intl.formatMessage(messages.joinOC)}
               </H1>
             </Box>
             <Box textAlign="center">
               <P fontSize="Paragraph" color="black.600" mb={1}>
-                {intl.formatMessage(this.messages.createOrSignIn)}
+                {intl.formatMessage(messages.createOrSignIn)}
               </P>
             </Box>
           </Flex>
@@ -173,18 +161,21 @@ class CreateCollective extends Component {
     }
 
     if (!host && !category) {
-      return <CollectiveCategoryPicker onChange={this.handleChange} />;
+      return <CollectiveCategoryPicker />;
     }
 
     if ((category === 'opensource' || get(host, 'slug') === 'opensource') && step !== 'form') {
-      return <ConnectGithub token={token} onChange={this.handleChange} />;
+      if (token) {
+        return <ConnectGithub updateGithubInfo={githubInfo => this.setState({ githubInfo })} />;
+      } else {
+        return <CreateOpenSourceCollective />;
+      }
     }
 
     return (
       <CreateCollectiveForm
         host={host}
-        collective={this.state.collective}
-        github={this.state.github}
+        github={this.state.githubInfo}
         onSubmit={this.createCollective}
         onChange={this.handleChange}
         loading={this.state.creating}

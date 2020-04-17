@@ -40,11 +40,15 @@ const placeholders = {
   slug: 'agora',
 };
 
+const formatGithubRepoName = repoName => {
+  // replaces dash and underscore with space, then capitalises the words
+  return repoName.replace(/[-_]/g, ' ').replace(/(?:^|\s)\S/g, words => words.toUpperCase());
+};
+
 class CreateCollectiveForm extends React.Component {
   static propTypes = {
     error: PropTypes.string,
     host: PropTypes.object,
-    collective: PropTypes.object,
     loading: PropTypes.bool,
     onSubmit: PropTypes.func,
     intl: PropTypes.object.isRequired,
@@ -55,13 +59,11 @@ class CreateCollectiveForm extends React.Component {
 
   constructor(props) {
     super(props);
-    this.handleChange = this.handleChange.bind(this);
-    this.githubRepoHelper = this.githubRepoHelper.bind(this);
 
-    const collective = { ...props.collective }; // {}
+    this.handleChange = this.handleChange.bind(this);
 
     this.state = {
-      collective,
+      collective: {},
       tosChecked: false,
       hostTosChecked: false,
     };
@@ -128,17 +130,11 @@ class CreateCollectiveForm extends React.Component {
     }));
   }
 
-  githubRepoHelper(repoName) {
-    // replaces dash and underscore with space, then capitalises the words
-    const formattedName = repoName.replace(/[-_]/g, ' ').replace(/(?:^|\s)\S/g, words => words.toUpperCase());
-    return formattedName;
-  }
-
   render() {
     const { intl, error, host, loading, github, router } = this.props;
 
     const initialValues = {
-      name: github ? this.githubRepoHelper(github.repo) : '',
+      name: github ? formatGithubRepoName(github.repo) : '',
       description: '',
       slug: github ? github.repo : '',
     };
