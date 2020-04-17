@@ -1,5 +1,5 @@
 # source: http://localhost:3060/graphql/v2
-# timestamp: Wed Apr 15 2020 17:06:24 GMT+0200 (GMT+02:00)
+# timestamp: Fri Apr 17 2020 17:06:54 GMT+0200 (Central European Summer Time)
 
 """
 Account interface shared by all kind of accounts (Bot, Collective, Event, User, Organization)
@@ -43,6 +43,11 @@ interface Account {
   The time of last update
   """
   updatedAt: DateTime
+
+  """
+  Returns whether this account is archived
+  """
+  isArchived: Boolean
   members(
     limit: Int = 100
     offset: Int = 0
@@ -298,6 +303,11 @@ type Bot implements Account {
   updatedAt: DateTime
 
   """
+  Returns whether this account is archived
+  """
+  isArchived: Boolean
+
+  """
   Get all members (admins, members, backers, followers)
   """
   members(limit: Int = 100, offset: Int = 0, role: [MemberRole], accountType: [AccountType]): MemberCollection
@@ -413,6 +423,11 @@ type Collective implements Account {
   updatedAt: DateTime
 
   """
+  Returns whether this account is archived
+  """
+  isArchived: Boolean
+
+  """
   Get all members (admins, members, backers, followers)
   """
   members(limit: Int = 100, offset: Int = 0, role: [MemberRole], accountType: [AccountType]): MemberCollection
@@ -477,7 +492,7 @@ type Collective implements Account {
   """
   Amount of money in cents in the currency of the collective currently available to spend
   """
-  balance: Int
+  balance: Int @deprecated(reason: "2020/04/09 - Should not have been introduced. Use stats.balance.value")
 
   """
   Get the host collective that is receiving the money on behalf of this collective
@@ -485,9 +500,24 @@ type Collective implements Account {
   host: Account
 
   """
+  Return this collective approved date
+  """
+  approvedAt: DateTime
+
+  """
   Returns whether this collective is approved
   """
   isApproved: Boolean
+
+  """
+  Number of unique financial contributors of the collective.
+  """
+  totalFinancialContributors(
+    """
+    Type of account (COLLECTIVE/EVENT/ORGANIZATION/INDIVIDUAL)
+    """
+    accountType: AccountType
+  ): Int
 }
 
 input CollectiveCreateInput {
@@ -814,6 +844,11 @@ type Event implements Account {
   updatedAt: DateTime
 
   """
+  Returns whether this account is archived
+  """
+  isArchived: Boolean
+
+  """
   Get all members (admins, members, backers, followers)
   """
   members(limit: Int = 100, offset: Int = 0, role: [MemberRole], accountType: [AccountType]): MemberCollection
@@ -878,7 +913,7 @@ type Event implements Account {
   """
   Amount of money in cents in the currency of the collective currently available to spend
   """
-  balance: Int
+  balance: Int @deprecated(reason: "2020/04/09 - Should not have been introduced. Use stats.balance.value")
 
   """
   Get the host collective that is receiving the money on behalf of this collective
@@ -1151,7 +1186,7 @@ input ExpenseItemInput {
   """
   URL of the file linked to this item. Must be provided if the expense type is RECEIPT.
   """
-  url: String
+  url: URL
 
   """
   When was the money spent?
@@ -1307,6 +1342,11 @@ type Host implements Account {
   updatedAt: DateTime
 
   """
+  Returns whether this account is archived
+  """
+  isArchived: Boolean
+
+  """
   Get all members (admins, members, backers, followers)
   """
   members(limit: Int = 100, offset: Int = 0, role: [MemberRole], accountType: [AccountType]): MemberCollection
@@ -1369,6 +1409,8 @@ type Host implements Account {
   stats: AccountStats
   hostFeePercent: Int
   totalHostedCollectives: Int
+  isOpenToApplications: Boolean
+  termsUrl: URL
 }
 
 """
@@ -1416,6 +1458,11 @@ type Individual implements Account {
   """
   createdAt: DateTime
   updatedAt: DateTime
+
+  """
+  Returns whether this account is archived
+  """
+  isArchived: Boolean
 
   """
   Get all members (admins, members, backers, followers)
@@ -1853,6 +1900,11 @@ type Organization implements Account {
   updatedAt: DateTime
 
   """
+  Returns whether this account is archived
+  """
+  isArchived: Boolean
+
+  """
   Get all members (admins, members, backers, followers)
   """
   members(limit: Int = 100, offset: Int = 0, role: [MemberRole], accountType: [AccountType]): MemberCollection
@@ -1968,46 +2020,88 @@ This is the root query
 type Query {
   account(
     """
-    The public id identifying the account (ie: dgm9bnk8-0437xqry-ejpvzeol-jdayw5re)
+    The public id identifying the Account (ie: dgm9bnk8-0437xqry-ejpvzeol-jdayw5re)
     """
     id: String
 
     """
-    The slug identifying the account (ie: babel for https://opencollective.com/babel)
+    The slug identifying the Account (ie: babel for https://opencollective.com/babel)
     """
     slug: String
 
     """
-    The githubHandle attached to the account (ie: babel for https://opencollective.com/babel)
+    The githubHandle attached to the Account (ie: babel for https://opencollective.com/babel)
     """
     githubHandle: String
 
     """
-    If false, will return null instead of an error if collective is not found
+    If false, will return null instead of an error if the Account is not found
     """
     throwIfMissing: Boolean = true
   ): Account
   collective(
     """
-    The public id identifying the collective (ie: dgm9bnk8-0437xqry-ejpvzeol-jdayw5re)
+    The public id identifying the Collective (ie: dgm9bnk8-0437xqry-ejpvzeol-jdayw5re)
     """
     id: String
 
     """
-    The slug identifying the collective (ie: babel for https://opencollective.com/babel)
+    The slug identifying the Collective (ie: babel for https://opencollective.com/babel)
     """
     slug: String
 
     """
-    The githubHandle attached to the collective (ie: babel for https://opencollective.com/babel)
+    The githubHandle attached to the Collective (ie: babel for https://opencollective.com/babel)
     """
     githubHandle: String
 
     """
-    If false, will return null instead of an error if collective is not found
+    If false, will return null instead of an error if the Collective is not found
     """
     throwIfMissing: Boolean = true
   ): Collective
+  host(
+    """
+    The public id identifying the Host (ie: dgm9bnk8-0437xqry-ejpvzeol-jdayw5re)
+    """
+    id: String
+
+    """
+    The slug identifying the Host (ie: babel for https://opencollective.com/babel)
+    """
+    slug: String
+
+    """
+    The githubHandle attached to the Host (ie: babel for https://opencollective.com/babel)
+    """
+    githubHandle: String
+
+    """
+    If false, will return null instead of an error if the Host is not found
+    """
+    throwIfMissing: Boolean = true
+  ): Host
+  individual(
+    """
+    The public id identifying the Individual (ie: dgm9bnk8-0437xqry-ejpvzeol-jdayw5re)
+    """
+    id: String
+
+    """
+    The slug identifying the Individual (ie: babel for https://opencollective.com/babel)
+    """
+    slug: String
+
+    """
+    The githubHandle attached to the Individual (ie: babel for https://opencollective.com/babel)
+    """
+    githubHandle: String
+
+    """
+    If false, will return null instead of an error if the Individual is not found
+    """
+    throwIfMissing: Boolean = true
+  ): Individual
   conversation(
     """
     The id identifying the conversation
@@ -2160,6 +2254,6 @@ type TransferWiseRequiredField {
 }
 
 """
-A field whose value conforms to the standard URL format as specified in RFC3986: https://www.ietf.org/rfc/rfc3986.txt
+A field whose value conforms to the standard URL format as specified in RFC3986: https://www.ietf.org/rfc/rfc3986.txt.
 """
 scalar URL

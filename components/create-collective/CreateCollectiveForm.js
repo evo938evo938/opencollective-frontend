@@ -6,6 +6,7 @@ import { assign, get } from 'lodash';
 import { FormattedMessage, defineMessages, injectIntl } from 'react-intl';
 import themeGet from '@styled-system/theme-get';
 import styled from 'styled-components';
+import { withRouter } from 'next/router';
 
 import { H1, P } from '../Text';
 import Container from '../Container';
@@ -43,13 +44,13 @@ class CreateCollectiveForm extends React.Component {
   static propTypes = {
     error: PropTypes.string,
     host: PropTypes.object,
-    query: PropTypes.object,
     collective: PropTypes.object,
     loading: PropTypes.bool,
     onSubmit: PropTypes.func,
     intl: PropTypes.object.isRequired,
     onChange: PropTypes.func,
     github: PropTypes.object,
+    router: PropTypes.object.isRequired,
   };
 
   constructor(props) {
@@ -110,7 +111,7 @@ class CreateCollectiveForm extends React.Component {
   }
 
   componentDidMount() {
-    const { category, step, hostTos } = this.props.query;
+    const { category, step, hostTos } = this.props.router.query;
     // first condition is if they are coming from Github stars, second is if they are coming from request manual verification
     if ((category === 'opensource' && step === 'form') || hostTos) {
       this.setState({ hostTosChecked: true });
@@ -134,7 +135,7 @@ class CreateCollectiveForm extends React.Component {
   }
 
   render() {
-    const { intl, error, host, loading, github, query } = this.props;
+    const { intl, error, host, loading, github, router } = this.props;
 
     const initialValues = {
       name: github ? this.githubRepoHelper(github.repo) : '',
@@ -319,7 +320,7 @@ class CreateCollectiveForm extends React.Component {
                           this.setState({ tosChecked: checked });
                         }}
                       />
-                      {!query.hostTos && get(host, 'settings.tos') && (
+                      {!router.query.hostTos && host && host.termsUrl && (
                         <StyledCheckbox
                           alignItems="flex-start"
                           name="hostTos"
@@ -378,4 +379,4 @@ class CreateCollectiveForm extends React.Component {
   }
 }
 
-export default injectIntl(CreateCollectiveForm);
+export default injectIntl(withRouter(CreateCollectiveForm));

@@ -4,6 +4,7 @@ import { Flex, Box } from '../Grid';
 import styled from 'styled-components';
 import { defineMessages, injectIntl } from 'react-intl';
 import themeGet from '@styled-system/theme-get';
+import { withRouter } from 'next/router';
 
 import { H1 } from '../Text';
 import StyledButton from '../StyledButton';
@@ -37,11 +38,11 @@ const Image = styled.img`
 
 class CollectiveCategoryPicker extends React.Component {
   static propTypes = {
-    query: PropTypes.object,
     defaultValue: PropTypes.string,
     onChange: PropTypes.func.isRequired,
     intl: PropTypes.object.isRequired,
     subtitle: PropTypes.string,
+    router: PropTypes.object.isRequired,
   };
 
   constructor(props) {
@@ -70,7 +71,7 @@ class CollectiveCategoryPicker extends React.Component {
   }
 
   render() {
-    const { intl, query } = this.props;
+    const { intl, router } = this.props;
 
     return (
       <div>
@@ -91,22 +92,12 @@ class CollectiveCategoryPicker extends React.Component {
                   <Link
                     route="create-collective"
                     params={{
-                      hostCollectiveSlug: query.hostCollectiveSlug,
-                      verb: query.verb,
+                      hostCollectiveSlug: router.query.hostCollectiveSlug,
+                      verb: router.query.verb,
                       category: 'opensource',
                     }}
                   >
-                    <StyledButton
-                      fontSize="13px"
-                      buttonStyle="primary"
-                      minHeight="36px"
-                      mt={[2, 3]}
-                      mb={3}
-                      px={3}
-                      onClick={() => {
-                        this.handleChange('category', 'opensource');
-                      }}
-                    >
+                    <StyledButton fontSize="13px" buttonStyle="primary" minHeight="36px" mt={[2, 3]} mb={3} px={3}>
                       {intl.formatMessage(this.messages.opensource)}
                     </StyledButton>
                   </Link>
@@ -130,22 +121,12 @@ class CollectiveCategoryPicker extends React.Component {
                   <Link
                     route="create-collective"
                     params={{
-                      hostCollectiveSlug: query.hostCollectiveSlug,
-                      verb: query.verb,
+                      hostCollectiveSlug: router.query.hostCollectiveSlug,
+                      verb: router.query.verb,
                       category: 'covid-19',
                     }}
                   >
-                    <StyledButton
-                      fontSize="13px"
-                      buttonStyle="primary"
-                      minHeight="36px"
-                      mt={[2, 3]}
-                      mb={3}
-                      px={3}
-                      onClick={() => {
-                        this.handleChange('category', 'covid-19');
-                      }}
-                    >
+                    <StyledButton fontSize="13px" buttonStyle="primary" minHeight="36px" mt={[2, 3]} mb={3} px={3}>
                       {intl.formatMessage(this.messages.covid)}&nbsp;
                     </StyledButton>
                   </Link>
@@ -168,22 +149,12 @@ class CollectiveCategoryPicker extends React.Component {
                   <Link
                     route="create-collective"
                     params={{
-                      hostCollectiveSlug: query.hostCollectiveSlug,
-                      verb: query.verb,
+                      hostCollectiveSlug: router.query.hostCollectiveSlug,
+                      verb: router.query.verb,
                       category: 'community',
                     }}
                   >
-                    <StyledButton
-                      fontSize="13px"
-                      buttonStyle="primary"
-                      minHeight="36px"
-                      mt={[2, 3]}
-                      mb={3}
-                      px={3}
-                      onClick={() => {
-                        this.handleChange('category', 'community');
-                      }}
-                    >
+                    <StyledButton fontSize="13px" buttonStyle="primary" minHeight="36px" mt={[2, 3]} mb={3} px={3}>
                       {intl.formatMessage(this.messages.community)}
                     </StyledButton>
                   </Link>
@@ -200,4 +171,4 @@ class CollectiveCategoryPicker extends React.Component {
   }
 }
 
-export default injectIntl(CollectiveCategoryPicker);
+export default injectIntl(withRouter(CollectiveCategoryPicker));

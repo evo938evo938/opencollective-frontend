@@ -5,6 +5,7 @@ import { URLSearchParams } from 'universal-url';
 import { FormattedMessage, defineMessages, injectIntl } from 'react-intl';
 import themeGet from '@styled-system/theme-get';
 import styled from 'styled-components';
+import { withRouter } from 'next/router';
 
 import StyledButton from '../StyledButton';
 import StyledCheckbox from '../StyledCheckbox';
@@ -30,7 +31,6 @@ const BackButton = styled(StyledButton)`
 
 class ConnectGithub extends React.Component {
   static propTypes = {
-    query: PropTypes.object,
     token: PropTypes.string,
     loadingLoggedInUser: PropTypes.bool,
     LoggedInUser: PropTypes.object,
@@ -38,6 +38,7 @@ class ConnectGithub extends React.Component {
     createCollectiveFromGithub: PropTypes.func,
     intl: PropTypes.object.isRequired,
     onChange: PropTypes.func.isRequired,
+    router: PropTypes.object.isRequired,
   };
 
   constructor(props) {
@@ -98,8 +99,8 @@ class ConnectGithub extends React.Component {
   changeRoute = async params => {
     params = {
       ...params,
-      verb: this.props.query.verb,
-      hostCollectiveSlug: this.props.query.hostCollectiveSlug || undefined,
+      verb: this.props.router.query.verb,
+      hostCollectiveSlug: this.props.router.query.hostCollectiveSlug || undefined,
     };
     await Router.pushRoute('create-collective', params);
     window.scrollTo(0, 0);
@@ -394,4 +395,4 @@ class ConnectGithub extends React.Component {
   }
 }
 
-export default injectIntl(withUser(ConnectGithub));
+export default injectIntl(withRouter(withUser(ConnectGithub)));

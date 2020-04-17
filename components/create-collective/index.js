@@ -4,6 +4,7 @@ import { Flex, Box } from '../Grid';
 import { defineMessages, injectIntl, FormattedMessage } from 'react-intl';
 import { graphql } from '@apollo/react-hoc';
 import { get } from 'lodash';
+import { withRouter } from 'next/router';
 
 import { H1, P } from '../Text';
 import CreateCollectiveForm from './CreateCollectiveForm';
@@ -21,11 +22,11 @@ import { Router } from '../../server/pages';
 class CreateCollective extends Component {
   static propTypes = {
     host: PropTypes.object,
-    query: PropTypes.object,
     LoggedInUser: PropTypes.object, // from withUser
     refetchLoggedInUser: PropTypes.func.isRequired, // from withUser
     intl: PropTypes.object.isRequired,
     createCollective: PropTypes.func,
+    router: PropTypes.object.isRequired,
   };
 
   constructor(props) {
@@ -68,7 +69,7 @@ class CreateCollective extends Component {
       });
       return;
     }
-    if (this.props.host && this.props.host.settings.tos && !collective.hostTos) {
+    if (this.props.host && this.props.host.termsUrl && !collective.hostTos) {
       this.setState({
         error: 'Please accept the terms of fiscal sponsorship',
       });
@@ -80,7 +81,7 @@ class CreateCollective extends Component {
 
     // prepare object
 
-    collective.tags = [this.props.query.category];
+    collective.tags = [this.props.router.query.category];
     if (this.state.github) {
       collective.githubHandle = this.state.github.handle;
     }
@@ -90,9 +91,11 @@ class CreateCollective extends Component {
     // try mutation
     try {
       const res = await this.props.createCollective({
-        collective,
-        host: this.props.host ? { slug: this.props.host.slug } : null,
-        automateApprovalWithGithub: this.state.github ? true : false,
+        variables: {
+          collective,
+          host: this.props.host ? { slug: this.props.host.slug } : null,
+          automateApprovalWithGithub: this.state.github ? true : false,
+        },
       });
       const newCollective = res.data.createCollective;
       this.setState({
@@ -123,11 +126,11 @@ class CreateCollective extends Component {
   }
 
   render() {
-    const { LoggedInUser, query, intl, host } = this.props;
+    const { LoggedInUser, intl, host, router } = this.props;
     const { error } = this.state;
-    const { category, step, token } = query;
+    const { category, step, token } = router.query;
 
-    if (host && !host.canApply) {
+    if (host && !host.isOpenToApplications) {
       return (
         <Flex flexDirection="column" alignItems="center" mb={5} p={2}>
           <Flex flexDirection="column" p={4} mt={3}>
@@ -170,11 +173,11 @@ class CreateCollective extends Component {
     }
 
     if (!host && !category) {
-      return <CollectiveCategoryPicker query={query} onChange={this.handleChange} />;
+      return <CollectiveCategoryPicker onChange={this.handleChange} />;
     }
 
     if ((category === 'opensource' || get(host, 'slug') === 'opensource') && step !== 'form') {
-      return <ConnectGithub token={token} query={query} onChange={this.handleChange} />;
+      return <ConnectGithub token={token} onChange={this.handleChange} />;
     }
 
     return (
@@ -186,13 +189,12 @@ class CreateCollective extends Component {
         onChange={this.handleChange}
         loading={this.state.creating}
         error={error}
-        query={query}
       />
     );
   }
 }
 
-const createCollectiveQuery = gqlV2`
+const CREATE_COLLECTIVE = gqlV2`
   mutation createCollective(
     $collective: CollectiveCreateInput!
     $host: AccountReferenceInput
@@ -209,17 +211,9 @@ const createCollectiveQuery = gqlV2`
   }
 `;
 
-const addCreateCollectiveMutation = graphql(createCollectiveQuery, {
-  options: {
-    context: API_V2_CONTEXT,
-  },
-  props: ({ mutate }) => ({
-    createCollective: async ({ collective, host, automateApprovalWithGithub }) => {
-      return await mutate({
-        variables: { collective, host, automateApprovalWithGithub },
-      });
-    },
-  }),
+const addCreateCollectiveMutation = graphql(CREATE_COLLECTIVE, {
+  name: 'createCollective',
+  options: { context: API_V2_CONTEXT },
 });
 
-export default injectIntl(withUser(addCreateCollectiveMutation(CreateCollective)));
+export default injectIntl(withRouter(withUser(addCreateCollectiveMutation(CreateCollective))));
