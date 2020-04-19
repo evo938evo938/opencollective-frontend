@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { Flex, Box } from '@rebass/grid';
-import { defineMessages, FormattedMessage, injectIntl } from 'react-intl';
+import { Box, Flex } from '@rebass/grid';
 import { get, groupBy } from 'lodash';
-import { Button } from 'react-bootstrap';
 import { withRouter } from 'next/router';
+import { Button } from 'react-bootstrap';
+import { defineMessages, FormattedMessage, injectIntl } from 'react-intl';
 
 import { Router } from '../../server/pages';
 

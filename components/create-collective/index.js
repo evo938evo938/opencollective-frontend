@@ -1,23 +1,24 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Flex, Box } from '@rebass/grid';
-import { defineMessages, injectIntl, FormattedMessage } from 'react-intl';
 import { graphql } from '@apollo/react-hoc';
+import { Box, Flex } from '@rebass/grid';
 import { get } from 'lodash';
+import { defineMessages, FormattedMessage, injectIntl } from 'react-intl';
 
-import { H1, P } from '../Text';
-import CreateCollectiveForm from './CreateCollectiveForm';
-import CollectiveCategoryPicker from './CollectiveCategoryPicker';
-import ConnectGithub from './ConnectGithub';
-import SignInOrJoinFree from '../SignInOrJoinFree';
-import MessageBox from '../MessageBox';
-import { withUser } from '../UserProvider';
-
-import { getLoggedInUserQuery } from '../../lib/graphql/queries';
-import { API_V2_CONTEXT, gqlV2 } from '../../lib/graphql/helpers';
 import { getErrorFromGraphqlException } from '../../lib/errors';
+import { API_V2_CONTEXT, gqlV2 } from '../../lib/graphql/helpers';
+import { getLoggedInUserQuery } from '../../lib/graphql/queries';
 import { parseToBoolean } from '../../lib/utils';
 import { Router } from '../../server/pages';
+
+import MessageBox from '../MessageBox';
+import SignInOrJoinFree from '../SignInOrJoinFree';
+import { H1, P } from '../Text';
+import { withUser } from '../UserProvider';
+
+import CollectiveCategoryPicker from './CollectiveCategoryPicker';
+import ConnectGithub from './ConnectGithub';
+import CreateCollectiveForm from './CreateCollectiveForm';
 
 class CreateCollective extends Component {
   static propTypes = {

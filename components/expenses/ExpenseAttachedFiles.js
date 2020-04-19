@@ -1,7 +1,8 @@
-import { Box, Flex } from '@rebass/grid';
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
+import { Box, Flex } from '@rebass/grid';
 import { FormattedMessage } from 'react-intl';
+
 import StyledButton from '../StyledButton';
 import UploadedFilePreview from '../UploadedFilePreview';
 

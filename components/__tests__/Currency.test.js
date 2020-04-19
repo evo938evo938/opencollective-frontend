@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { snapshot } from '../../test/snapshot-helpers';
 import Currency from '../Currency';
 

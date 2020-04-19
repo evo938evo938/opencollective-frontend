@@ -1,7 +1,7 @@
-import styled from 'styled-components';
-import { Box } from '@rebass/grid';
-import { bottom, height, left, position, right, top } from 'styled-system';
 import PropTypes from 'prop-types';
+import { Box } from '@rebass/grid';
+import styled from 'styled-components';
+import { bottom, height, left, position, right, top } from 'styled-system';
 
 import { pointerEvents } from '../lib/styled-system-custom-properties';
 

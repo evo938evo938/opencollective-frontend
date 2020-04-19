@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Flex } from '@rebass/grid';
-import { defineMessages, injectIntl } from 'react-intl';
 import { get } from 'lodash';
+import { defineMessages, injectIntl } from 'react-intl';
+import styled from 'styled-components';
 
-import { H4, P, Span } from './Text';
 import Container from './Container';
 import StyledTextarea from './StyledTextarea';
-import styled from 'styled-components';
+import { H4, P, Span } from './Text';
 
 const List = styled.ul`
   margin: 0;

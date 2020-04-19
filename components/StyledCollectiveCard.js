@@ -5,13 +5,14 @@ import { get } from 'lodash';
 import { injectIntl } from 'react-intl';
 
 import { getCollectiveMainTag } from '../lib/collective.lib';
-import StyledCard from './StyledCard';
-import LinkCollective from './LinkCollective';
-import Container from './Container';
-import { P } from './Text';
+
 import Avatar from './Avatar';
+import Container from './Container';
 import I18nCollectiveTags from './I18nCollectiveTags';
+import LinkCollective from './LinkCollective';
+import StyledCard from './StyledCard';
 import StyledTag from './StyledTag';
+import { P } from './Text';
 
 const getBackground = collective => {
   const backgroundImage = collective.backgroundImageUrl || get(collective, 'parentCollective.backgroundImageUrl');

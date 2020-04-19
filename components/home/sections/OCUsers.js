@@ -1,16 +1,16 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import { Box, Flex } from '@rebass/grid';
+import { defineMessages, FormattedMessage, useIntl } from 'react-intl';
 import styled from 'styled-components';
-import { Flex, Box } from '@rebass/grid';
-import { FormattedMessage, defineMessages, useIntl } from 'react-intl';
 
-import { P } from '../../Text';
-import StyledCarousel from '../../StyledCarousel';
 import Container from '../../Container';
-import SectionTitle from '../SectionTitle';
-import SectionSubTitle from '../SectionSubtitle';
 import Link from '../../Link';
+import StyledCarousel from '../../StyledCarousel';
 import StyledLink from '../../StyledLink';
+import { P } from '../../Text';
+import SectionSubTitle from '../SectionSubtitle';
+import SectionTitle from '../SectionTitle';
 
 const Img = styled.img`
   max-width: 100%;

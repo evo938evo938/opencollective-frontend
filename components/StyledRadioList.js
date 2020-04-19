@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { Box } from '@rebass/grid';
 import { find } from 'lodash';
 
-import { Box } from '@rebass/grid';
 import Container from './Container';
 
 /**

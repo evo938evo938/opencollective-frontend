@@ -1,14 +1,15 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Box } from '@rebass/grid';
 import { Field } from 'formik';
 import { get, set } from 'lodash';
-import PropTypes from 'prop-types';
-import React from 'react';
 import { defineMessages, useIntl } from 'react-intl';
 import { isEmail } from 'validator';
 
 import { PayoutMethodType } from '../../lib/constants/payout-method';
-import { formatFormErrorMessage } from '../../lib/form-utils';
 import { createError, ERROR } from '../../lib/errors';
+import { formatFormErrorMessage } from '../../lib/form-utils';
+
 import StyledCheckbox from '../StyledCheckbox';
 import StyledInput from '../StyledInput';
 import StyledInputField from '../StyledInputField';

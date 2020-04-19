@@ -1,11 +1,9 @@
-import { Flex, Box } from '@rebass/grid';
-import { get } from 'lodash';
-import PropTypes from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useMutation } from '@apollo/react-hooks';
-import { FormattedMessage, defineMessages, useIntl } from 'react-intl';
-
-import imgInvoiceTitlePreview from '../../../public/static/images/invoice-title-preview.jpg';
+import { Box, Flex } from '@rebass/grid';
+import { get } from 'lodash';
+import { defineMessages, FormattedMessage, useIntl } from 'react-intl';
 
 import { getErrorFromGraphqlException } from '../../../lib/errors';
 
@@ -15,8 +13,9 @@ import StyledButton from '../../StyledButton';
 import StyledInput from '../../StyledInput';
 import StyledTextarea from '../../StyledTextarea';
 import { H3, H4, P } from '../../Text';
-
 import { updateSettingsMutation } from '../mutations';
+
+import imgInvoiceTitlePreview from '../../../public/static/images/invoice-title-preview.jpg';
 
 const messages = defineMessages({
   extraInfoPlaceholder: {

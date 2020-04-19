@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import { Flex } from '@rebass/grid';
 import { FormattedMessage } from 'react-intl';
 
-import StyledRoundButton from '../../components/StyledRoundButton';
-import StyledButton from '../../components/StyledButton';
-
-import { Router } from '../../server/pages';
 import withViewport, { VIEWPORTS } from '../../lib/withViewport';
+import { Router } from '../../server/pages';
+
+import StyledButton from '../../components/StyledButton';
+import StyledRoundButton from '../../components/StyledRoundButton';
 
 const params = {
   0: {

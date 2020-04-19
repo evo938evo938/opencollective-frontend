@@ -1,17 +1,18 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { Flex, Box } from '@rebass/grid';
-import { FormattedMessage, defineMessages, injectIntl } from 'react-intl';
+import { Box, Flex } from '@rebass/grid';
 import { Github } from '@styled-icons/fa-brands/Github';
 import { Twitter } from '@styled-icons/fa-brands/Twitter';
 import { Field } from 'formik';
+import { defineMessages, FormattedMessage, injectIntl } from 'react-intl';
 
+import CollectivePickerAsync from '../../components/CollectivePickerAsync';
 import Container from '../../components/Container';
-import { H1, P } from '../../components/Text';
+import StyledHr from '../../components/StyledHr';
 import StyledInputField from '../../components/StyledInputField';
 import StyledInputGroup from '../../components/StyledInputGroup';
-import StyledHr from '../../components/StyledHr';
-import CollectivePickerAsync from '../../components/CollectivePickerAsync';
+import { H1, P } from '../../components/Text';
+
 import OnboardingProfileCard from './OnboardingProfileCard';
 import OnboardingSkipButton from './OnboardingSkipButton';
 

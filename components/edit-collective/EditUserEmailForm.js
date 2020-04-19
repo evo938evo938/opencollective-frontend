@@ -1,17 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { graphql } from '@apollo/react-hoc';
+import { Box, Flex } from '@rebass/grid';
+import gql from 'graphql-tag';
+import { isNil } from 'lodash';
 import { FormattedMessage } from 'react-intl';
 import { isEmail } from 'validator';
-import { Box, Flex } from '@rebass/grid';
-import { isNil } from 'lodash';
-import { graphql } from '@apollo/react-hoc';
-import gql from 'graphql-tag';
 
 import { addUpdateUserEmailMutation } from '../../lib/graphql/mutations';
-import { H2, Span } from '../Text';
-import StyledInput from '../StyledInput';
-import StyledButton from '../StyledButton';
+
 import MessageBox from '../MessageBox';
+import StyledButton from '../StyledButton';
+import StyledInput from '../StyledInput';
+import { H2, Span } from '../Text';
 
 class EditUserEmailForm extends React.Component {
   static propTypes = {

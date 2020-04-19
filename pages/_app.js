@@ -1,11 +1,3 @@
-import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
-import App from 'next/app';
-import Router from 'next/router';
-import NProgress from 'nprogress';
-import { ThemeProvider } from 'styled-components';
-import { ApolloProvider } from '@apollo/react-components';
-
 // For old browsers without window.Intl
 import 'intl';
 import 'intl/locale-data/jsonp/en.js';
@@ -13,12 +5,22 @@ import 'intl-pluralrules';
 import '@formatjs/intl-relativetimeformat/polyfill';
 import '@formatjs/intl-relativetimeformat/dist/locale-data/en';
 
+import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
+import { ApolloProvider } from '@apollo/react-components';
+import App from 'next/app';
+import Router from 'next/router';
+import NProgress from 'nprogress';
 import { IntlProvider } from 'react-intl';
+import { ThemeProvider } from 'styled-components';
 
-import UserProvider from '../components/UserProvider';
-import StripeProviderSSR from '../components/StripeProvider';
-import withData from '../lib/withData';
+import { getGoogleMapsScriptUrl, loadGoogleMaps } from '../lib/google-maps';
 import theme from '../lib/theme';
+import withData from '../lib/withData';
+import sentryLib from '../server/sentry';
+
+import StripeProviderSSR from '../components/StripeProvider';
+import UserProvider from '../components/UserProvider';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'nprogress/nprogress.css';
@@ -26,7 +28,6 @@ import 'react-datetime/css/react-datetime.css';
 import 'react-quill/dist/quill.snow.css';
 import 'react-mde/lib/styles/css/react-mde-all.css';
 import 'trix/dist/trix.css';
-
 import '../public/static/styles/app.css';
 import '../public/static/styles/react-tags.css';
 
@@ -35,9 +36,6 @@ Router.onRouteChangeStart = () => NProgress.start();
 Router.onRouteChangeComplete = () => NProgress.done();
 
 Router.onRouteChangeError = () => NProgress.done();
-
-import { getGoogleMapsScriptUrl, loadGoogleMaps } from '../lib/google-maps';
-import sentryLib from '../server/sentry';
 
 // Use JSDOM on server-side so that react-intl can render rich messages
 // See https://github.com/formatjs/react-intl/blob/c736c2e6c6096b1d5ad1fb6be85fa374891d0a6c/docs/Getting-Started.md#domparser

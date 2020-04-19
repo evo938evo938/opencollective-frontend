@@ -1,21 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormattedMessage } from 'react-intl';
+import { graphql } from '@apollo/react-hoc';
 import { Flex } from '@rebass/grid';
 import { get } from 'lodash';
-import { graphql } from '@apollo/react-hoc';
+import { FormattedMessage } from 'react-intl';
 
-import Page from '../components/Page';
-import { withUser } from '../components/UserProvider';
+import { GraphQLContext } from '../lib/graphql/context';
+import { addEditCollectiveMutation } from '../lib/graphql/mutations';
+import { getCollectiveToEditQuery } from '../lib/graphql/queries';
+
 import EditCollective from '../components/edit-collective';
 import ErrorPage from '../components/ErrorPage';
-import MessageBox from '../components/MessageBox';
-
-import { getCollectiveToEditQuery } from '../lib/graphql/queries';
-import { addEditCollectiveMutation } from '../lib/graphql/mutations';
-import { GraphQLContext } from '../lib/graphql/context';
-
 import Loading from '../components/Loading';
+import MessageBox from '../components/MessageBox';
+import Page from '../components/Page';
+import { withUser } from '../components/UserProvider';
 
 class EditCollectivePage extends React.Component {
   static getInitialProps({ query, res }) {

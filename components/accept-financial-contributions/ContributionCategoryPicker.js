@@ -1,21 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Flex, Box } from '@rebass/grid';
-import styled from 'styled-components';
-import { defineMessages, injectIntl, FormattedMessage } from 'react-intl';
+import { Box, Flex } from '@rebass/grid';
 import { withRouter } from 'next/router';
+import { defineMessages, FormattedMessage, injectIntl } from 'react-intl';
+import styled from 'styled-components';
 
-import acceptMyselfIllustration from '../../public/static/images/create-collective/acceptContributionsMyselfIllustration.png';
-import acceptOrganizationIllustration from '../../public/static/images/create-collective/acceptContributionsOrganizationIllustration.png';
+import Container from '../Container';
+import ExternalLink from '../ExternalLink';
+import Link from '../Link';
+import StyledButton from '../StyledButton';
+import { H1, P } from '../Text';
+
+import acceptHostHoverIllustration from '../../public/static/images/create-collective/acceptContributionsHostHoverIllustration.png';
 import acceptHostIllustration from '../../public/static/images/create-collective/acceptContributionsHostIllustration.png';
 import acceptMyselfHoverIllustration from '../../public/static/images/create-collective/acceptContributionsMyselfHoverIllustration.png';
+import acceptMyselfIllustration from '../../public/static/images/create-collective/acceptContributionsMyselfIllustration.png';
 import acceptOrganizationHoverIllustration from '../../public/static/images/create-collective/acceptContributionsOrganizationHoverIllustration.png';
-import acceptHostHoverIllustration from '../../public/static/images/create-collective/acceptContributionsHostHoverIllustration.png';
-import { H1, P } from '../Text';
-import StyledButton from '../StyledButton';
-import Container from '../Container';
-import Link from '../Link';
-import ExternalLink from '../ExternalLink';
+import acceptOrganizationIllustration from '../../public/static/images/create-collective/acceptContributionsOrganizationIllustration.png';
 
 const Image = styled.img`
   position: absolute;

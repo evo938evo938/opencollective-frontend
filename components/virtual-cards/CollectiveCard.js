@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { Flex } from '@rebass/grid';
 import { has } from 'lodash';
 
+import Avatar from '../Avatar';
 import Container from '../Container';
 import LinkCollective from '../LinkCollective';
-import Avatar from '../Avatar';
 
 const CollectiveCard = ({ collective, children, size, avatarSize, p, ...props }) => {
   const hasCustomColor = has(collective, 'settings.collectivePage.primaryColor');

@@ -1,14 +1,16 @@
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Box } from '@rebass/grid';
 import { uniqBy } from 'lodash';
-import PropTypes from 'prop-types';
-import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import { attachmentDropzoneParams } from './lib/attachments';
+
 import PrivateInfoIcon from '../icons/PrivateInfoIcon';
 import StyledDropzone from '../StyledDropzone';
 import StyledInputField from '../StyledInputField';
 import { Span } from '../Text';
+
 import ExpenseAttachedFiles from './ExpenseAttachedFiles';
 
 const PrivateNoteLabel = () => {

@@ -1,17 +1,18 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { Flex, Box } from '@rebass/grid';
-import { defineMessages, injectIntl, FormattedMessage } from 'react-intl';
-import styled from 'styled-components';
+import { Box, Flex } from '@rebass/grid';
 import themeGet from '@styled-system/theme-get';
+import { defineMessages, FormattedMessage, injectIntl } from 'react-intl';
+import styled from 'styled-components';
 
-import placeholderIllustration from '../../public/static/images/create-collective/original/placeholderGraphic.png';
-import { H1, H2, P } from '../Text';
-import Container from '../Container';
-import StyledButton from '../StyledButton';
 import Avatar from '../Avatar';
+import Container from '../Container';
 import ExternalLink from '../ExternalLink';
 import Link from '../Link';
+import StyledButton from '../StyledButton';
+import { H1, H2, P } from '../Text';
+
+import placeholderIllustration from '../../public/static/images/create-collective/original/placeholderGraphic.png';
 
 const TIERS_INFO_LINK = 'https://docs.opencollective.com/help/collectives/tiers-goals';
 

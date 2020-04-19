@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Box, Flex } from '@rebass/grid';
 import { Row } from 'react-bootstrap';
 import { defineMessages, FormattedMessage, injectIntl } from 'react-intl';
-import { Flex, Box } from '@rebass/grid';
 
-import { Link } from '../../server/pages';
-import { getCurrencySymbol, capitalize } from '../../lib/utils';
 import { paymentMethodLabelWithIcon } from '../../lib/payment_method_label';
+import { capitalize, getCurrencySymbol } from '../../lib/utils';
+import { Link } from '../../server/pages';
 
 import InputField from '../InputField';
 import StyledButton from '../StyledButton';

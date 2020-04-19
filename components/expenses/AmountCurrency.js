@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Flex } from '@rebass/grid';
 
-import { Span } from '../Text';
 import Currency from '../Currency';
+import { Span } from '../Text';
 
 const AmountCurrency = ({ abbreviate = false, currency, precision = 0, amount, ...styles }) => (
   <Flex alignItems="baseline" className="AmountCurrency">

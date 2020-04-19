@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'next/router';
 
-import ContributionCategoryPicker from './ContributionCategoryPicker';
 import ApplyToHost from './ApplyToHost';
+import ContributionCategoryPicker from './ContributionCategoryPicker';
 import HostSuccessPage from './HostSuccessPage';
 
 class AcceptFinancialContributions extends Component {

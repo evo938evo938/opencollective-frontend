@@ -1,35 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import gql from 'graphql-tag';
-import styled from 'styled-components';
-import sanitizeHtml from 'sanitize-html';
 import { graphql } from '@apollo/react-hoc';
-import { fontSize, maxWidth } from 'styled-system';
-import { Flex, Box } from '@rebass/grid';
-import { FormattedMessage, defineMessages, injectIntl } from 'react-intl';
+import { Box, Flex } from '@rebass/grid';
+import gql from 'graphql-tag';
 import { get } from 'lodash';
+import { defineMessages, FormattedMessage, injectIntl } from 'react-intl';
+import sanitizeHtml from 'sanitize-html';
+import styled from 'styled-components';
+import { fontSize, maxWidth } from 'styled-system';
 
-import { Router } from '../server/pages';
-
-import { withUser } from '../components/UserProvider';
-import Header from '../components/Header';
-import Body from '../components/Body';
-import Footer from '../components/Footer';
-import Container from '../components/Container';
-import RedeemForm from '../components/RedeemForm';
-import RedeemSuccess from '../components/RedeemSuccess';
-import { P, H1, H5 } from '../components/Text';
-import LinkCollective from '../components/LinkCollective';
-
+import { getErrorFromGraphqlException } from '../lib/errors';
 import { getLoggedInUserQuery } from '../lib/graphql/queries';
 import { isValidEmail } from '../lib/utils';
-import { getErrorFromGraphqlException } from '../lib/errors';
+import { Router } from '../server/pages';
 
-import StyledButton from '../components/StyledButton';
-import LoadingPlaceholder from '../components/LoadingPlaceholder';
+import Body from '../components/Body';
 import CollectiveThemeProvider from '../components/CollectiveThemeProvider';
-import HappyBackground from '../components/virtual-cards/HappyBackground';
+import Container from '../components/Container';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
+import LinkCollective from '../components/LinkCollective';
+import LoadingPlaceholder from '../components/LoadingPlaceholder';
+import RedeemForm from '../components/RedeemForm';
+import RedeemSuccess from '../components/RedeemSuccess';
+import StyledButton from '../components/StyledButton';
+import { H1, H5, P } from '../components/Text';
+import { withUser } from '../components/UserProvider';
 import CollectiveCard from '../components/virtual-cards/CollectiveCard';
+import HappyBackground from '../components/virtual-cards/HappyBackground';
 
 const ShadowBox = styled(Box)`
   box-shadow: 0px 8px 16px rgba(20, 20, 20, 0.12);

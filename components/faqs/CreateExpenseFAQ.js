@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormattedMessage } from 'react-intl';
-import FAQ, { Entry, Title, Content } from './FAQ';
-import StyledLink from '../StyledLink';
-import ExternalLink from '../ExternalLink';
 import { Box } from '@rebass/grid';
+import { FormattedMessage } from 'react-intl';
+
+import ExternalLink from '../ExternalLink';
+import StyledLink from '../StyledLink';
+
+import FAQ, { Content, Entry, Title } from './FAQ';
 
 const CreateExpenseFAQ = ({ defaultOpen, ...props }) => (
   <FAQ {...props}>

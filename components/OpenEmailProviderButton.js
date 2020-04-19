@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 
-import StyledButton from './StyledButton';
 import ExternalLink from './ExternalLink';
+import StyledButton from './StyledButton';
 
 /** Returns info about email's provider, or null if unknown provider */
 const getProvider = email => {

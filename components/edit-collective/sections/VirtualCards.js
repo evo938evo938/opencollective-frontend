@@ -1,24 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormattedMessage, injectIntl, defineMessages } from 'react-intl';
 import { graphql } from '@apollo/react-hoc';
-import { Flex, Box } from '@rebass/grid';
-import { get, last } from 'lodash';
-import { withRouter } from 'next/router';
-import gql from 'graphql-tag';
-import memoizeOne from 'memoize-one';
+import { Box, Flex } from '@rebass/grid';
 import { Add } from '@styled-icons/material/Add';
+import gql from 'graphql-tag';
+import { get, last } from 'lodash';
+import memoizeOne from 'memoize-one';
+import { withRouter } from 'next/router';
+import { defineMessages, FormattedMessage, injectIntl } from 'react-intl';
 
 import { Router } from '../../../server/pages';
 
-import StyledSelect from '../../StyledSelect';
-import VirtualCardDetails from '../../VirtualCardDetails';
+import Link from '../../Link';
 import Loading from '../../Loading';
 import Pagination from '../../Pagination';
-import Link from '../../Link';
-import StyledButtonSet from '../../StyledButtonSet';
-import { P } from '../../Text';
 import StyledButton from '../../StyledButton';
+import StyledButtonSet from '../../StyledButtonSet';
+import StyledSelect from '../../StyledSelect';
+import { P } from '../../Text';
+import VirtualCardDetails from '../../VirtualCardDetails';
 
 const messages = defineMessages({
   notBatched: {

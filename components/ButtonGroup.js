@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { borders, borderRadius } from 'styled-system';
 import { Flex } from '@rebass/grid';
+import styled from 'styled-components';
+import { borderRadius, borders } from 'styled-system';
 
 const computeBorderRadius = ({ index, itemCount }) => {
   if (index === 0) {

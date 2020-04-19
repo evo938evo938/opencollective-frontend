@@ -1,24 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import gql from 'graphql-tag';
-import { defineMessages, FormattedNumber, FormattedMessage, injectIntl } from 'react-intl';
 import { graphql } from '@apollo/react-hoc';
-import { get, set, cloneDeep, uniq, pick, omit } from 'lodash';
-
-import { getFromLocalStorage, LOCAL_STORAGE_KEYS } from '../../lib/local-storage';
-import { capitalize, getCurrencySymbol, formatCurrency } from '../../lib/utils';
-import { imagePreview } from '../../lib/image-utils';
-import InputField from '../../components/InputField';
-import categories from '../../lib/constants/categories';
-import DefinedTerm, { Terms } from '../DefinedTerm';
-
-import TransactionDetails from './TransactionDetails';
 import { Box, Flex } from '@rebass/grid';
-import ExpenseInvoiceDownloadHelper from './ExpenseInvoiceDownloadHelper';
-import StyledSpinner from '../StyledSpinner';
-import StyledButton from '../StyledButton';
-import MessageBox from '../MessageBox';
+import gql from 'graphql-tag';
+import { cloneDeep, get, omit, pick, set, uniq } from 'lodash';
+import { defineMessages, FormattedMessage, FormattedNumber, injectIntl } from 'react-intl';
+
+import categories from '../../lib/constants/categories';
 import { formatErrorMessage } from '../../lib/errors';
+import { imagePreview } from '../../lib/image-utils';
+import { getFromLocalStorage, LOCAL_STORAGE_KEYS } from '../../lib/local-storage';
+import { capitalize, formatCurrency, getCurrencySymbol } from '../../lib/utils';
+
+import InputField from '../../components/InputField';
+
+import DefinedTerm, { Terms } from '../DefinedTerm';
+import MessageBox from '../MessageBox';
+import StyledButton from '../StyledButton';
+import StyledSpinner from '../StyledSpinner';
+
+import ExpenseInvoiceDownloadHelper from './ExpenseInvoiceDownloadHelper';
+import TransactionDetails from './TransactionDetails';
 
 class ExpenseDetails extends React.Component {
   static propTypes = {

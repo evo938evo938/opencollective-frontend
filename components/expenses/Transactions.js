@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ButtonGroup, Button } from 'react-bootstrap';
-import { FormattedMessage } from 'react-intl';
 import { Box } from '@rebass/grid';
+import { Button, ButtonGroup } from 'react-bootstrap';
+import { FormattedMessage } from 'react-intl';
 
 import colors from '../../lib/constants/colors';
 
+import DownloadInvoicesPopOver from './DownloadInvoicesPopOver';
 import Transaction from './Transaction';
 import TransactionsExportPopoverAndButton from './TransactionsExportPopoverAndButton';
-import DownloadInvoicesPopOver from './DownloadInvoicesPopOver';
 
 class Transactions extends React.Component {
   static propTypes = {

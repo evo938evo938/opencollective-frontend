@@ -1,14 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Flex } from '@rebass/grid';
 import { get } from 'lodash';
 import { defineMessages, injectIntl } from 'react-intl';
-import { Flex } from '@rebass/grid';
 
 import colors from '../lib/constants/colors';
-import { formatCurrency, formatDate, firstSentence, singular, capitalize } from '../lib/utils';
-import LinkCollective from './LinkCollective';
-import CollectiveCard from './CollectiveCard';
+import { capitalize, firstSentence, formatCurrency, formatDate, singular } from '../lib/utils';
+
 import Avatar from './Avatar';
+import CollectiveCard from './CollectiveCard';
+import LinkCollective from './LinkCollective';
 
 class Member extends React.Component {
   static propTypes = {

@@ -1,9 +1,6 @@
-import { Flex } from '@rebass/grid';
-import PropTypes from 'prop-types';
 import React from 'react';
-import { defineMessages, FormattedMessage, useIntl } from 'react-intl';
-import styled from 'styled-components';
-
+import PropTypes from 'prop-types';
+import { Flex } from '@rebass/grid';
 import { CheckCircle as CheckIcon } from '@styled-icons/boxicons-regular/CheckCircle';
 import { Ban as RejectedIcon } from '@styled-icons/fa-solid/Ban';
 import { Cogs as CogsIcon } from '@styled-icons/fa-solid/Cogs';
@@ -12,6 +9,8 @@ import { Edit as EditIcon } from '@styled-icons/feather/Edit';
 import { UserCheck as ApprovedIcon } from '@styled-icons/feather/UserCheck';
 import { UserMinus as UnapprovedIcon } from '@styled-icons/feather/UserMinus';
 import { Update as UpdateIcon } from '@styled-icons/material/Update';
+import { defineMessages, FormattedMessage, useIntl } from 'react-intl';
+import styled from 'styled-components';
 
 import Avatar from '../Avatar';
 import LinkCollective from '../LinkCollective';

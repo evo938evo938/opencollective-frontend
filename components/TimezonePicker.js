@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import StyledSelect from './StyledSelect';
-import momentTimezone from 'moment-timezone';
 import { Box } from '@rebass/grid';
+import momentTimezone from 'moment-timezone';
+
+import StyledSelect from './StyledSelect';
 import { P } from './Text';
 
 class TimezonePicker extends React.Component {

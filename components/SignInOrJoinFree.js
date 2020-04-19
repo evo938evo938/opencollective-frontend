@@ -1,20 +1,20 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
-import { Flex, Box } from '@rebass/grid';
-import { FormattedMessage } from 'react-intl';
+import { graphql } from '@apollo/react-hoc';
+import { Box, Flex } from '@rebass/grid';
 import { pick } from 'lodash';
+import { FormattedMessage } from 'react-intl';
 
 import * as api from '../lib/api';
+import { createUserQuery } from '../lib/graphql/mutations';
 import { Router } from '../server/pages';
 
-import Link from './Link';
-import SignIn from './SignIn';
-import CreateProfile from './CreateProfile';
 import CreateProfileFAQ from './faqs/CreateProfileFAQ';
-import { P } from './Text';
+import CreateProfile from './CreateProfile';
+import Link from './Link';
 import MessageBox from './MessageBox';
-import { createUserQuery } from '../lib/graphql/mutations';
-import { graphql } from '@apollo/react-hoc';
+import SignIn from './SignIn';
+import { P } from './Text';
 
 /**
  * Shows a SignIn form by default, with the ability to switch to SignUp form. It

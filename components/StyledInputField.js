@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Flex, Box } from '@rebass/grid';
+import { Box, Flex } from '@rebass/grid';
 import { FormattedMessage } from 'react-intl';
+
 import { P, Span } from './Text';
 
 /**

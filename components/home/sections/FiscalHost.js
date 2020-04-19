@@ -1,16 +1,16 @@
 import React from 'react';
-import styled from 'styled-components';
-import { Flex, Box } from '@rebass/grid';
+import { Box, Flex } from '@rebass/grid';
 import { FormattedMessage } from 'react-intl';
+import styled from 'styled-components';
 
 import { Link as RouterLink } from '../../../server/pages';
 
-import { P } from '../../Text';
 import Container from '../../Container';
 import StyledButton from '../../StyledButton';
-import SectionTitle from '../SectionTitle';
-import Illustration from '../HomeIllustration';
 import StyledLink from '../../StyledLink';
+import { P } from '../../Text';
+import Illustration from '../HomeIllustration';
+import SectionTitle from '../SectionTitle';
 
 const Wrapper = styled(Container)`
   background-image: url('/static/images/home/fiscalhost-bg-sm.png');

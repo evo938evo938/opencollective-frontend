@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import { Box } from '@rebass/grid';
 import { defineMessages, useIntl } from 'react-intl';
 import Markdown from 'react-markdown';
+
 import Collapse from '../Collapse';
-import { H5 } from '../Text';
 import Container from '../Container';
+import { H5 } from '../Text';
 
 const msg = defineMessages({
   policies: {

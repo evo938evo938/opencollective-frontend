@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { groupBy } from 'lodash';
 
-import { capitalize, parseToBoolean } from '../../lib/utils';
 import hasFeature, { FEATURES } from '../../lib/allowed-features';
+import { capitalize, parseToBoolean } from '../../lib/utils';
 
 import { H4 } from '../Text';
 

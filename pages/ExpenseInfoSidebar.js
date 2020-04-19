@@ -1,8 +1,8 @@
-import { Flex, Box } from '@rebass/grid';
-import PropTypes from 'prop-types';
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
+import PropTypes from 'prop-types';
+import { Box, Flex } from '@rebass/grid';
 import { isEmpty } from 'lodash';
+import { FormattedMessage } from 'react-intl';
 
 import Container from '../components/Container';
 import ExpandableExpensePolicies from '../components/expenses/ExpandableExpensePolicies';
@@ -10,9 +10,9 @@ import CreateExpenseFAQ from '../components/faqs/CreateExpenseFAQ';
 import FormattedMoneyAmount from '../components/FormattedMoneyAmount';
 import LinkCollective from '../components/LinkCollective';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
-import { H5, Strong, P } from '../components/Text';
-import StyledTag from '../components/StyledTag';
 import StyledInputTags from '../components/StyledInputTags';
+import StyledTag from '../components/StyledTag';
+import { H5, P, Strong } from '../components/Text';
 
 /**
  * Provide some info (ie. collective balance, tags, policies, etc.) for the expense pages

@@ -1,13 +1,14 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+import { useMutation } from '@apollo/react-hooks';
 import { Flex } from '@rebass/grid';
 import gql from 'graphql-tag';
-import PropTypes from 'prop-types';
-import React from 'react';
-import { useMutation } from '@apollo/react-hooks';
 import { defineMessages, useIntl } from 'react-intl';
 
 import roles from '../lib/constants/roles';
-import formatMemberRole from '../lib/i18n-member-role';
 import { getErrorFromGraphqlException } from '../lib/errors';
+import formatMemberRole from '../lib/i18n-member-role';
+
 import Avatar from './Avatar';
 import LinkCollective from './LinkCollective';
 import MessageBox from './MessageBox';

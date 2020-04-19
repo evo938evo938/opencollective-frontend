@@ -4,16 +4,19 @@ import { Box, Flex } from '@rebass/grid';
 import { defineMessages, injectIntl } from 'react-intl';
 import styled from 'styled-components';
 
+import StyledTag from '../../components/StyledTag';
+
+import CollectiveNavbar from '../CollectiveNavbar';
+import Container from '../Container';
+import ExternalLink from '../ExternalLink';
+import I18nCollectiveTags from '../I18nCollectiveTags';
+import StyledButton from '../StyledButton';
+import { H1, H2, H3, P } from '../Text';
+
+import HostsContainer from './HostsContainer';
+
 import umbrellaIllustration from '../../public/static/images/create-collective/acceptContributionsHostHoverIllustration.png';
 import climateIllustration from '../../public/static/images/create-collective/climateIllustration.png';
-import { H1, H2, H3, P } from '../Text';
-import StyledButton from '../StyledButton';
-import ExternalLink from '../ExternalLink';
-import Container from '../Container';
-import HostsContainer from './HostsContainer';
-import StyledTag from '../../components/StyledTag';
-import CollectiveNavbar from '../CollectiveNavbar';
-import I18nCollectiveTags from '../I18nCollectiveTags';
 
 const tagList = ['All fiscal hosts', 'climate', 'opensource', 'covid'];
 const FISCAL_HOST_LINK = 'https://docs.opencollective.com/help/fiscal-hosts/become-a-fiscal-host';
