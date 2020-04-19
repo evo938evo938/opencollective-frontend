@@ -1,7 +1,5 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { Clock } from '@styled-icons/feather/Clock';
-import { MapPin } from '@styled-icons/feather/MapPin';
 import themeGet from '@styled-system/theme-get';
 import moment from 'moment';
 import momentTimezone from 'moment-timezone';
@@ -10,6 +8,9 @@ import styled from 'styled-components';
 
 import Link from '../../Link';
 import StyledTooltip from '../../StyledTooltip';
+
+import { Clock } from '@styled-icons/feather/Clock';
+import { MapPin } from '@styled-icons/feather/MapPin';
 
 const StyledEventNote = styled.div`
   display: flex;

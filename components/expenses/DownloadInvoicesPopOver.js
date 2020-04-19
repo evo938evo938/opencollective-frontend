@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from '@apollo/react-hoc';
-import { FileDownload } from '@styled-icons/fa-solid/FileDownload';
 import classnames from 'classnames';
 import gql from 'graphql-tag';
 import { groupBy, omit, uniq } from 'lodash';
@@ -15,6 +14,8 @@ import { formatCurrency } from '../../lib/utils';
 import InputField from '../InputField';
 
 import InvoiceDownloadLink from './InvoiceDownloadLink';
+
+import { FileDownload } from '@styled-icons/fa-solid/FileDownload';
 
 class Overlay extends React.Component {
   static propTypes = {

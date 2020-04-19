@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from '@apollo/react-hoc';
 import { Box } from '@rebass/grid';
-import { Email } from '@styled-icons/material/Email';
 import gql from 'graphql-tag';
 import { get } from 'lodash';
 import { FormattedMessage } from 'react-intl';
@@ -11,6 +10,8 @@ import Container from '../components/Container';
 import MessageBox from '../components/MessageBox';
 import Page from '../components/Page';
 import { withUser } from '../components/UserProvider';
+
+import { Email } from '@styled-icons/material/Email';
 
 /**
  * Main contribution flow entrypoint. Render all the steps from contributeAs

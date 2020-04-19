@@ -2,8 +2,8 @@ import React from 'react';
 import { mount } from 'enzyme';
 
 import { capitalize } from '../../lib/utils';
-
 import { withRequiredProviders } from '../../test/providers';
+
 import Tier from '../Tier';
 
 const DEBUG = process.env.DEBUG || false;

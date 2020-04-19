@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useMutation } from '@apollo/react-hooks';
 import { Box, Flex } from '@rebass/grid';
-import { Edit } from '@styled-icons/feather/Edit';
-import { X } from '@styled-icons/feather/X';
 import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
 
@@ -23,6 +21,9 @@ import StyledButton from '../StyledButton';
 import { P } from '../Text';
 
 import { CommentFieldsFragment } from './graphql';
+
+import { Edit } from '@styled-icons/feather/Edit';
+import { X } from '@styled-icons/feather/X';
 
 const CommentBtn = styled(StyledButton)`
   height: 32px;

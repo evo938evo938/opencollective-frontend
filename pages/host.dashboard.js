@@ -1,9 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Flex } from '@rebass/grid';
-import { CheckDouble } from '@styled-icons/boxicons-regular/CheckDouble';
-import { Donate as DonateIcon } from '@styled-icons/fa-solid/Donate';
-import { Receipt as ReceiptIcon } from '@styled-icons/material/Receipt';
 import { omit } from 'lodash';
 import { FormattedMessage } from 'react-intl';
 import styled, { css } from 'styled-components';
@@ -18,6 +15,10 @@ import Loading from '../components/Loading';
 import MessageBox from '../components/MessageBox';
 import Page from '../components/Page';
 import { withUser } from '../components/UserProvider';
+
+import { CheckDouble } from '@styled-icons/boxicons-regular/CheckDouble';
+import { Donate as DonateIcon } from '@styled-icons/fa-solid/Donate';
+import { Receipt as ReceiptIcon } from '@styled-icons/material/Receipt';
 
 const MenuLink = styled(props => <Link {...omit(props, ['isActive'])} />)`
   padding: 4px 20px 0 20px;

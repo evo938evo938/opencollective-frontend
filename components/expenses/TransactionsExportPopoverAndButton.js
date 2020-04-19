@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withApollo } from '@apollo/react-hoc';
-import { FileDownload } from '@styled-icons/fa-solid/FileDownload';
 import moment from 'moment';
 import { Button, OverlayTrigger, Popover } from 'react-bootstrap';
 import { FormattedMessage } from 'react-intl';
@@ -10,6 +9,8 @@ import { exportFile } from '../../lib/export_file';
 import { getTransactionsQuery } from '../../lib/graphql/queries';
 
 import InputField from '../InputField';
+
+import { FileDownload } from '@styled-icons/fa-solid/FileDownload';
 
 /* Convert the output of the allTransactions query into a CSV payload
    that can be downloaded directly by the user */

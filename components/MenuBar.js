@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Pencil } from '@styled-icons/octicons/Pencil';
 import { get, throttle, uniqBy } from 'lodash';
 import { defineMessages, FormattedMessage, injectIntl } from 'react-intl';
 import Sticky from 'react-stickynode';
@@ -15,6 +14,8 @@ import Button from './Button';
 import Link from './Link';
 import Logo from './Logo';
 import { withUser } from './UserProvider';
+
+import { Pencil } from '@styled-icons/octicons/Pencil';
 
 const PencilIcon = styled(Pencil)`
   margin-right: 8px;

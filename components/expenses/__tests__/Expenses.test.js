@@ -2,6 +2,7 @@ import React from 'react';
 import { mount } from 'enzyme';
 
 import { withRequiredProviders } from '../../../test/providers';
+
 import Expenses from '../Expenses';
 
 describe('Expenses component', () => {

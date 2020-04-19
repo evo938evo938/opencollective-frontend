@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from '@apollo/react-hoc';
 import { Box, Flex } from '@rebass/grid';
-import { Lock } from '@styled-icons/fa-solid';
 import gql from 'graphql-tag';
 import { get, isEmpty } from 'lodash';
 import { FormattedMessage, injectIntl } from 'react-intl';
@@ -22,6 +21,8 @@ import { P, Span } from '../../Text';
 import ContainerSectionContent from '../ContainerSectionContent';
 import { UpdatesFieldsFragment } from '../graphql/fragments';
 import SectionTitle from '../SectionTitle';
+
+import { Lock } from '@styled-icons/fa-solid';
 
 /** Query to re-fetch updates */
 const UpdatesQuery = gql`

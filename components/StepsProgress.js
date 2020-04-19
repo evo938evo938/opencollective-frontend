@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Flex } from '@rebass/grid';
-import { Check } from '@styled-icons/fa-solid/Check';
 import themeGet from '@styled-system/theme-get';
 import classNames from 'classnames';
 import { transparentize } from 'polished';
@@ -12,6 +11,8 @@ import withViewport, { VIEWPORTS } from '../lib/withViewport';
 
 import StyledSpinner from './StyledSpinner';
 import { P, Span } from './Text';
+
+import { Check } from '@styled-icons/fa-solid/Check';
 
 const Bubble = styled(Flex)`
   justify-content: center;

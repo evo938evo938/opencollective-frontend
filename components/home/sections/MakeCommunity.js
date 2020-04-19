@@ -1,6 +1,5 @@
 import React, { Fragment, useState } from 'react';
 import { Box, Flex } from '@rebass/grid';
-import { RightArrow } from '@styled-icons/boxicons-regular/RightArrow';
 import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
 
@@ -10,6 +9,8 @@ import StyledButton from '../../StyledButton';
 import Modal from '../../StyledModal';
 import { H1, H4, P, Span } from '../../Text';
 import Illustration from '../HomeIllustration';
+
+import { RightArrow } from '@styled-icons/boxicons-regular/RightArrow';
 
 const SustainTextWrapper = styled(Span)`
   background-image: url('/static/images/home/sustain-underline-sm.png');

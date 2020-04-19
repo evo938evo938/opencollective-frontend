@@ -1,8 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Box } from '@rebass/grid';
-import { Github } from '@styled-icons/fa-brands/Github';
-import { Star } from '@styled-icons/fa-solid/Star';
 import { pick } from 'lodash';
 import { FormattedMessage } from 'react-intl';
 
@@ -15,6 +13,9 @@ import StyledInputField from './StyledInputField';
 import StyledInputGroup from './StyledInputGroup';
 import StyledRadioList from './StyledRadioList';
 import { P, Span } from './Text';
+
+import { Github } from '@styled-icons/fa-brands/Github';
+import { Star } from '@styled-icons/fa-solid/Star';
 
 const useForm = () => {
   const [state, setState] = useState({ errors: '', useType: 'repository' });

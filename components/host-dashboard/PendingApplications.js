@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import { Mutation } from '@apollo/react-components';
 import { graphql } from '@apollo/react-hoc';
 import { Box, Flex } from '@rebass/grid';
-import { Check } from '@styled-icons/boxicons-regular/Check';
-import { Github } from '@styled-icons/fa-brands/Github';
 import gql from 'graphql-tag';
 import { get } from 'lodash';
 import { FormattedMessage } from 'react-intl';
@@ -25,6 +23,9 @@ import { Span } from '../Text';
 import { withUser } from '../UserProvider';
 
 import AppRejectionReasonModal from './AppRejectionReasonModal';
+
+import { Check } from '@styled-icons/boxicons-regular/Check';
+import { Github } from '@styled-icons/fa-brands/Github';
 
 const ApproveCollectiveMutation = gql`
   mutation approveCollective($id: Int!) {

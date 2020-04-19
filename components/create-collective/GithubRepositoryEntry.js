@@ -1,12 +1,13 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Flex } from '@rebass/grid';
-import { Github } from '@styled-icons/fa-brands/Github';
-import { Star } from '@styled-icons/fa-solid/Star';
 
 import Container from '../Container';
 import StyledRadioList from '../StyledRadioList';
 import { P, Span } from '../Text';
+
+import { Github } from '@styled-icons/fa-brands/Github';
+import { Star } from '@styled-icons/fa-solid/Star';
 
 const RepositoryEntry = ({ radio, value, checked, changeRepoInfo }) => {
   const { type, login } = value.owner;

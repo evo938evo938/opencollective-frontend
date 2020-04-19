@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ChevronLeft } from '@styled-icons/fa-solid/ChevronLeft';
-import { ChevronRight } from '@styled-icons/fa-solid/ChevronRight';
 import themeGet from '@styled-system/theme-get';
 import styled from 'styled-components';
 
 import { debounceScroll } from '../lib/ui-utils';
 import withViewport from '../lib/withViewport';
+
+import { ChevronLeft } from '@styled-icons/fa-solid/ChevronLeft';
+import { ChevronRight } from '@styled-icons/fa-solid/ChevronRight';
 
 /** Main chevrons container, spacing the items properly */
 const ChevronsContainer = styled(({ onPrevClick, onNextClick, ...props }) => (

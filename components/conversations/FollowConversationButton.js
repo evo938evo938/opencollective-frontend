@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useMutation, useQuery } from '@apollo/react-hooks';
-import { Bell } from '@styled-icons/feather/Bell';
-import { BellOff } from '@styled-icons/feather/BellOff';
 import { get } from 'lodash';
 import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
@@ -17,6 +15,9 @@ import { Span } from '../Text';
 import { withUser } from '../UserProvider';
 
 import { isUserFollowingConversationQuery } from './graphql';
+
+import { Bell } from '@styled-icons/feather/Bell';
+import { BellOff } from '@styled-icons/feather/BellOff';
 
 const followConversationMutation = gqlV2`
   mutation FollowConversation($id: String!, $isActive: Boolean) {

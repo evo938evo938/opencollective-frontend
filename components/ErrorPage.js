@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Flex } from '@rebass/grid';
-import { Support } from '@styled-icons/boxicons-regular/Support';
-import { Redo } from '@styled-icons/fa-solid/Redo';
 import { get } from 'lodash';
 import { FormattedMessage } from 'react-intl';
 
@@ -20,6 +18,9 @@ import StyledButton from './StyledButton';
 import StyledLink from './StyledLink';
 import { H1, P } from './Text';
 import { withUser } from './UserProvider';
+
+import { Support } from '@styled-icons/boxicons-regular/Support';
+import { Redo } from '@styled-icons/fa-solid/Redo';
 
 /**
  * A flexible error page

@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from '@apollo/react-hoc';
 import { Box, Flex } from '@rebass/grid';
-import { Add } from '@styled-icons/material/Add';
-import { Close } from '@styled-icons/material/Close';
 import gql from 'graphql-tag';
 import { difference, get, pick } from 'lodash';
 import memoizeOne from 'memoize-one';
@@ -23,6 +21,9 @@ import StyledHr from '../../StyledHr';
 import StyledInputGroup from '../../StyledInputGroup';
 import StyledSelect from '../../StyledSelect';
 import { Span } from '../../Text';
+
+import { Add } from '@styled-icons/material/Add';
+import { Close } from '@styled-icons/material/Close';
 
 const messages = defineMessages({
   'webhooks.url.label': {

@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from '@apollo/react-hoc';
 import { Box, Flex } from '@rebass/grid';
-import { Facebook } from '@styled-icons/fa-brands/Facebook';
-import { Twitter } from '@styled-icons/fa-brands/Twitter';
 import gql from 'graphql-tag';
 import { get } from 'lodash';
 import { defineMessages, FormattedMessage, injectIntl } from 'react-intl';
@@ -25,6 +23,8 @@ import StyledLink from '../components/StyledLink';
 import { H3, P, Span } from '../components/Text';
 import { withUser } from '../components/UserProvider';
 
+import { Facebook } from '@styled-icons/fa-brands/Facebook';
+import { Twitter } from '@styled-icons/fa-brands/Twitter';
 import orderSuccessBackgroundUrl from '../public/static/images/order-success-background.svg';
 
 const OrderSuccessContainer = styled(Flex)`

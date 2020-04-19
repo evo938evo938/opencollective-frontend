@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FileText } from '@styled-icons/feather/FileText';
 import styled from 'styled-components';
 
 import { imagePreview } from '../lib/image-utils';
@@ -9,6 +8,8 @@ import PrivateInfoIcon from './icons/PrivateInfoIcon';
 import Container from './Container';
 import ExternalLink from './ExternalLink';
 import LoadingPlaceholder from './LoadingPlaceholder';
+
+import { FileText } from '@styled-icons/feather/FileText';
 
 const ImageLink = styled(ExternalLink).attrs({ openInNewTab: true })`
   cursor: pointer;

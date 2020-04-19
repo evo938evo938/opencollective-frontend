@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from '@apollo/react-hoc';
 import { Box, Flex } from '@rebass/grid';
-import { ArrowBack } from '@styled-icons/boxicons-regular';
 import gql from 'graphql-tag';
 import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
@@ -23,6 +22,8 @@ import Link from '../components/Link';
 import MessageBox from '../components/MessageBox';
 import { H1 } from '../components/Text';
 import { withUser } from '../components/UserProvider';
+
+import { ArrowBack } from '@styled-icons/boxicons-regular';
 
 const BackButtonWrapper = styled(Container)`
   position: relative;

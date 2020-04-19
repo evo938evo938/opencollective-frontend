@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box } from '@rebass/grid';
-import { Check } from '@styled-icons/fa-solid/Check';
 import themeGet from '@styled-system/theme-get';
 import { isObject } from 'lodash';
 import { defineMessages, FormattedMessage, useIntl } from 'react-intl';
@@ -11,6 +10,8 @@ import { display } from 'styled-system';
 import Container from '../Container';
 import FormattedMoneyAmount, { DEFAULT_AMOUNT_STYLES } from '../FormattedMoneyAmount';
 import StyledLink from '../StyledLink';
+
+import { Check } from '@styled-icons/fa-solid/Check';
 
 const PlanLink = styled(StyledLink).attrs({
   buttonStyle: 'primary',

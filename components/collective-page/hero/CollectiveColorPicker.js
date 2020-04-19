@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Mutation } from '@apollo/react-components';
 import { Box, Flex } from '@rebass/grid';
-import { Check } from '@styled-icons/fa-solid/Check';
 import { set } from 'lodash';
 import { FormattedMessage } from 'react-intl';
 import styled, { withTheme } from 'styled-components';
@@ -17,6 +16,8 @@ import StyledInput from '../../StyledInput';
 import StyledInputGroup from '../../StyledInputGroup';
 import { P } from '../../Text';
 import { EditCollectiveSettingsMutation } from '../graphql/mutations';
+
+import { Check } from '@styled-icons/fa-solid/Check';
 
 const colorPath = 'collectivePage.primaryColor';
 

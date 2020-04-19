@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useQuery } from '@apollo/react-hooks';
 import { Box, Flex } from '@rebass/grid';
-import { ExternalLinkAlt } from '@styled-icons/fa-solid/ExternalLinkAlt';
 import gql from 'graphql-tag';
 import { FormattedMessage } from 'react-intl';
 
@@ -17,6 +16,8 @@ import PledgeCard from './PledgeCard';
 import StyledLink from './StyledLink';
 import { H2, H3, H5, P } from './Text';
 import { withUser } from './UserProvider';
+
+import { ExternalLinkAlt } from '@styled-icons/fa-solid/ExternalLinkAlt';
 
 const defaultPledgedLogo = '/static/images/default-pledged-logo.svg';
 

@@ -1,7 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Flex } from '@rebass/grid';
-import { Search } from '@styled-icons/octicons/Search';
 import themeGet from '@styled-system/theme-get';
 import { defineMessages, FormattedMessage, injectIntl } from 'react-intl';
 import styled from 'styled-components';
@@ -16,6 +15,8 @@ import StyledRadioList from '../StyledRadioList';
 import { H4 } from '../Text';
 
 import GithubRepositoryEntry from './GithubRepositoryEntry';
+
+import { Search } from '@styled-icons/octicons/Search';
 
 const SearchIcon = styled(Search)`
   color: ${themeGet('colors.black.300')};

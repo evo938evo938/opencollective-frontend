@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from '@apollo/react-hoc';
 import { Box, Flex } from '@rebass/grid';
-import { Add } from '@styled-icons/material/Add';
 import gql from 'graphql-tag';
 import { get, set, sortBy } from 'lodash';
 import { defineMessages, FormattedMessage, injectIntl } from 'react-intl';
@@ -24,6 +23,8 @@ import { H1, H2, H3, H4, P, Span } from '../../Text';
 import UpdateBankDetailsForm from '../../UpdateBankDetailsForm';
 import EditPaymentMethod from '../EditPaymentMethod';
 import EditReceivingSendingMoney from '../EditReceivingSendingMoney';
+
+import { Add } from '@styled-icons/material/Add';
 
 class EditPaymentMethods extends React.Component {
   static propTypes = {

@@ -2,7 +2,6 @@ import React, { useLayoutEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { Mutation } from '@apollo/react-components';
 import { Box, Flex } from '@rebass/grid';
-import { Times } from '@styled-icons/fa-solid/Times';
 import gql from 'graphql-tag';
 import { createPortal } from 'react-dom';
 import { defineMessages, FormattedMessage } from 'react-intl';
@@ -16,6 +15,8 @@ import StyledButton from './StyledButton';
 import StyledInput from './StyledInput';
 import { fadeIn } from './StyledKeyframes';
 import { Span } from './Text';
+
+import { Times } from '@styled-icons/fa-solid/Times';
 
 const POPUP_ARROW_WIDTH = 20;
 

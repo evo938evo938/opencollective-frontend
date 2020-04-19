@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box } from '@rebass/grid';
-import { Email } from '@styled-icons/material/Email';
 import { FormattedMessage } from 'react-intl';
 
 import { getBaseApiUrl } from '../lib/utils';
@@ -10,6 +9,8 @@ import Container from '../components/Container';
 import MessageBox from '../components/MessageBox';
 import Page from '../components/Page';
 import { withUser } from '../components/UserProvider';
+
+import { Email } from '@styled-icons/material/Email';
 
 /**
  * Email Unsubscription page.

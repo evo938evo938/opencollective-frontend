@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from '@apollo/react-hoc';
 import { Box, Flex } from '@rebass/grid';
-import { Lock } from '@styled-icons/fa-solid';
 import gql from 'graphql-tag';
 import { get } from 'lodash';
 import { defineMessages, FormattedMessage, injectIntl } from 'react-intl';
@@ -22,6 +21,8 @@ import PublishUpdateBtnWithData from './PublishUpdateBtnWithData';
 import Role from './Role';
 import { H3 } from './Text';
 import UpdateTextWithData from './UpdateTextWithData';
+
+import { Lock } from '@styled-icons/fa-solid';
 
 const UpdateWrapper = styled(Flex)`
   max-width: 100%;

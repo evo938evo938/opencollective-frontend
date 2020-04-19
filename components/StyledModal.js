@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Times } from '@styled-icons/fa-solid/Times';
 import { createPortal } from 'react-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 import { background, space } from 'styled-system';
 
 import Container from './Container';
+
+import { Times } from '@styled-icons/fa-solid/Times';
 
 const ModalWrapper = styled(Container).attrs(props => ({
   maxWidth: props.maxWidth || '95%',

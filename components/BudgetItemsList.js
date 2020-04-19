@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Flex } from '@rebass/grid';
-import { ChevronDown } from '@styled-icons/feather/ChevronDown';
-import { ChevronUp } from '@styled-icons/feather/ChevronUp';
 import gql from 'graphql-tag';
 import { round, truncate } from 'lodash';
 import { FormattedDate, FormattedMessage, injectIntl } from 'react-intl';
@@ -24,6 +22,9 @@ import LinkCollective from './LinkCollective';
 import StyledButton from './StyledButton';
 import StyledLink from './StyledLink';
 import { P, Span } from './Text';
+
+import { ChevronDown } from '@styled-icons/feather/ChevronDown';
+import { ChevronUp } from '@styled-icons/feather/ChevronUp';
 
 /** A fragment to use for `ExpenseType` items */
 export const BudgetItemExpenseTypeFragment = gql`

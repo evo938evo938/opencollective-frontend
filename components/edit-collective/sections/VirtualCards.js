@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from '@apollo/react-hoc';
 import { Box, Flex } from '@rebass/grid';
-import { Add } from '@styled-icons/material/Add';
 import gql from 'graphql-tag';
 import { get, last } from 'lodash';
 import memoizeOne from 'memoize-one';
@@ -19,6 +18,8 @@ import StyledButtonSet from '../../StyledButtonSet';
 import StyledSelect from '../../StyledSelect';
 import { P } from '../../Text';
 import VirtualCardDetails from '../../VirtualCardDetails';
+
+import { Add } from '@styled-icons/material/Add';
 
 const messages = defineMessages({
   notBatched: {

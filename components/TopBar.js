@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Flex } from '@rebass/grid';
-import { Bars as MenuIcon } from '@styled-icons/fa-solid/Bars';
 import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
 
@@ -14,6 +13,8 @@ import SearchForm from './SearchForm';
 import SearchIcon from './SearchIcon';
 import TopBarProfileMenu from './TopBarProfileMenu';
 import { withUser } from './UserProvider';
+
+import { Bars as MenuIcon } from '@styled-icons/fa-solid/Bars';
 
 const Logo = styled.img.attrs({
   src: '/static/images/opencollective-icon.svg',

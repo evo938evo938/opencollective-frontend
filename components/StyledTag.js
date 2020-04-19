@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Times } from '@styled-icons/fa-solid/Times';
 import styled from 'styled-components';
 import { background, border, color, layout, position, space, typography, variant } from 'styled-system';
 
 import { textTransform } from '../lib/styled-system-custom-properties';
 
 import { Span } from './Text';
+
+import { Times } from '@styled-icons/fa-solid/Times';
 
 const StyledTagBase = styled.div`
   border-radius: 4px;

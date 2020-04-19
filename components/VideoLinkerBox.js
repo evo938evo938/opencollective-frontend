@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box } from '@rebass/grid';
-import { VideoPlus } from '@styled-icons/boxicons-regular/VideoPlus';
-import { ArrowUpCircle } from '@styled-icons/feather/ArrowUpCircle';
 import themeGet from '@styled-system/theme-get';
 import { FormattedMessage } from 'react-intl';
 import styled, { css } from 'styled-components';
@@ -12,6 +10,9 @@ import StyledInput from './StyledInput';
 import { fadeInUp } from './StyledKeyframes';
 import { P } from './Text';
 import VideoPlayer, { supportedVideoProviders } from './VideoPlayer';
+
+import { VideoPlus } from '@styled-icons/boxicons-regular/VideoPlus';
+import { ArrowUpCircle } from '@styled-icons/feather/ArrowUpCircle';
 
 const VideoPlaceholder = styled(({ children, ...props }) => (
   <div {...props}>

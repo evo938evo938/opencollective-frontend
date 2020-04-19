@@ -3,6 +3,7 @@ import 'jest-styled-components';
 import React from 'react';
 
 import { snapshotI18n } from '../../test/snapshot-helpers';
+
 import I18nCollectiveTags from '../I18nCollectiveTags';
 
 describe('I18nCollectiveTags', () => {

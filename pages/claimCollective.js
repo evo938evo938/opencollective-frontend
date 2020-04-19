@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from '@apollo/react-hoc';
 import { Flex } from '@rebass/grid';
-import { Github } from '@styled-icons/fa-brands/Github';
 import gql from 'graphql-tag';
 import { get } from 'lodash';
 import fetch from 'node-fetch';
@@ -23,6 +22,8 @@ import StyledButton from '../components/StyledButton';
 import StyledLink from '../components/StyledLink';
 import { H2, H5, P, Span } from '../components/Text';
 import { withUser } from '../components/UserProvider';
+
+import { Github } from '@styled-icons/fa-brands/Github';
 
 const defaultPledgedLogo = '/static/images/default-pledged-logo.svg';
 

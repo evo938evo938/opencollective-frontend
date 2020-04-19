@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box } from '@rebass/grid';
-import { Calendar } from '@styled-icons/feather/Calendar';
-import { Clock } from '@styled-icons/feather/Clock';
 import { truncate } from 'lodash';
 import { FormattedDate, FormattedMessage } from 'react-intl';
 
@@ -15,6 +13,9 @@ import StyledLink from '../StyledLink';
 import { Span } from '../Text';
 
 import Contribute from './Contribute';
+
+import { Calendar } from '@styled-icons/feather/Calendar';
+import { Clock } from '@styled-icons/feather/Clock';
 
 const ContributeEvent = ({ collective, event, ...props }) => {
   const { startsAt, endsAt } = event;

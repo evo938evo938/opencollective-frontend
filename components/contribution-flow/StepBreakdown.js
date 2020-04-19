@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { checkVATNumberFormat, getVatOriginCountry, getVatPercentage } from '@opencollective/taxes';
 import { Box, Flex } from '@rebass/grid';
-import { Close } from '@styled-icons/material/Close';
 import { get } from 'lodash';
 import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
@@ -21,6 +20,8 @@ import StyledCard from '../StyledCard';
 import StyledHr from '../StyledHr';
 import StyledInput from '../StyledInput';
 import { Span } from '../Text';
+
+import { Close } from '@styled-icons/material/Close';
 
 const AmountLine = styled(Flex)``;
 AmountLine.defaultProps = {

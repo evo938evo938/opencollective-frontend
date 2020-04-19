@@ -1,11 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Mutation } from '@apollo/react-components';
-import { Check } from '@styled-icons/feather/Check';
-import { Download as IconDownload } from '@styled-icons/feather/Download';
-import { Edit as IconEdit } from '@styled-icons/feather/Edit';
-import { Link as IconLink } from '@styled-icons/feather/Link';
-import { Trash2 as IconTrash } from '@styled-icons/feather/Trash2';
 import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
 
@@ -19,6 +14,12 @@ import { fadeIn } from '../StyledKeyframes';
 import StyledRoundButton from '../StyledRoundButton';
 
 import ExpenseInvoiceDownloadHelper from './ExpenseInvoiceDownloadHelper';
+
+import { Check } from '@styled-icons/feather/Check';
+import { Download as IconDownload } from '@styled-icons/feather/Download';
+import { Edit as IconEdit } from '@styled-icons/feather/Edit';
+import { Link as IconLink } from '@styled-icons/feather/Link';
+import { Trash2 as IconTrash } from '@styled-icons/feather/Trash2';
 
 const deleteExpenseMutation = gqlV2`
   mutation deleteExpense($id: String!) {

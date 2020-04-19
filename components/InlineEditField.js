@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Mutation } from '@apollo/react-components';
 import { Box, Flex } from '@rebass/grid';
-import { PencilAlt } from '@styled-icons/fa-solid/PencilAlt';
 import { get, pick } from 'lodash';
 import { defineMessages, FormattedMessage, injectIntl } from 'react-intl';
 import styled from 'styled-components';
@@ -13,6 +12,8 @@ import StyledButton from './StyledButton';
 import { fadeIn } from './StyledKeyframes';
 import StyledTextarea from './StyledTextarea';
 import WarnIfUnsavedChanges from './WarnIfUnsavedChanges';
+
+import { PencilAlt } from '@styled-icons/fa-solid/PencilAlt';
 
 /** Container used to show the description to users than can edit it */
 const EditIcon = styled(PencilAlt)`

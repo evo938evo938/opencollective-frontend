@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Flex } from '@rebass/grid';
-import { ChevronDown } from '@styled-icons/boxicons-regular/ChevronDown';
-import { Settings } from '@styled-icons/feather/Settings';
 import { get, uniqBy } from 'lodash';
 import { defineMessages, FormattedMessage, injectIntl } from 'react-intl';
 
@@ -18,6 +16,9 @@ import LoginBtn from './LoginBtn';
 import StyledLink from './StyledLink';
 import { P } from './Text';
 import { withUser } from './UserProvider';
+
+import { ChevronDown } from '@styled-icons/boxicons-regular/ChevronDown';
+import { Settings } from '@styled-icons/feather/Settings';
 
 class TopBarProfileMenu extends React.Component {
   static propTypes = {

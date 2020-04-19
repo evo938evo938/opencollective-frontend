@@ -1,8 +1,6 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import { Flex } from '@rebass/grid';
-import { ChevronDown } from '@styled-icons/boxicons-regular/ChevronDown';
-import { Settings } from '@styled-icons/feather/Settings';
 import themeGet from '@styled-system/theme-get';
 import { get } from 'lodash';
 import { defineMessages, FormattedMessage, injectIntl } from 'react-intl';
@@ -20,6 +18,9 @@ import Link from './Link';
 import LinkCollective from './LinkCollective';
 import LoadingPlaceholder from './LoadingPlaceholder';
 import StyledRoundButton from './StyledRoundButton';
+
+import { ChevronDown } from '@styled-icons/boxicons-regular/ChevronDown';
+import { Settings } from '@styled-icons/feather/Settings';
 
 /** Main container for the entire component */
 const MainContainer = styled.div`

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Box, Flex } from '@rebass/grid';
-import { ArrowRight } from '@styled-icons/feather/ArrowRight';
 import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
 
@@ -9,6 +8,8 @@ import Link from '../../Link';
 import { H1, P } from '../../Text';
 import Newsletter from '../Newsletter';
 import SectionSubtitle from '../SectionSubtitle';
+
+import { ArrowRight } from '@styled-icons/feather/ArrowRight';
 
 const SectionWrapper = styled(Container)`
   background: url('/static/images/home/joinus-bg-sm.png');

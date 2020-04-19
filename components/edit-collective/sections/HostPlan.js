@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useQuery } from '@apollo/react-hooks';
-import { InfoCircle } from '@styled-icons/boxicons-regular/InfoCircle';
 import themeGet from '@styled-system/theme-get';
 import { get } from 'lodash';
 import { FormattedMessage } from 'react-intl';
@@ -14,6 +13,8 @@ import Button from '../../Button';
 import Loading from '../../Loading';
 import StyledTooltip from '../../StyledTooltip';
 import { H3 } from '../../Text';
+
+import { InfoCircle } from '@styled-icons/boxicons-regular/InfoCircle';
 
 const isTransferwiseEnabled = parseToBoolean(process.env.TRANSFERWISE_ENABLED);
 

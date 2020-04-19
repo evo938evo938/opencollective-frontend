@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Flex } from '@rebass/grid';
-import { PaperPlane } from '@styled-icons/boxicons-regular/PaperPlane';
 import themeGet from '@styled-system/theme-get';
 import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
@@ -10,6 +9,8 @@ import Container from '../components/Container';
 import Page from '../components/Page';
 import { H3, P } from '../components/Text';
 import { withUser } from '../components/UserProvider';
+
+import { PaperPlane } from '@styled-icons/boxicons-regular/PaperPlane';
 
 const Icon = styled(PaperPlane)`
   color: ${themeGet('colors.primary.300')};

@@ -1,9 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Flex } from '@rebass/grid';
-import { CheckCircle } from '@styled-icons/feather/CheckCircle';
-import { Clipboard } from '@styled-icons/feather/Clipboard';
-import { Printer } from '@styled-icons/feather/Printer';
 import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
 
@@ -13,6 +10,10 @@ import FileDownloader from './FileDownloader';
 import StyledButton from './StyledButton';
 import StyledInput from './StyledInput';
 import { P } from './Text';
+
+import { CheckCircle } from '@styled-icons/feather/CheckCircle';
+import { Clipboard } from '@styled-icons/feather/Clipboard';
+import { Printer } from '@styled-icons/feather/Printer';
 
 const RedeemLinksTextarea = styled(StyledInput).attrs({ as: 'textarea' })`
   width: 95%;

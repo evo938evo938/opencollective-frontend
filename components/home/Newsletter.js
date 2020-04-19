@@ -1,12 +1,13 @@
 import React from 'react';
 import { Box, Flex } from '@rebass/grid';
-import { Envelope } from '@styled-icons/fa-solid/Envelope';
 import { FormattedMessage } from 'react-intl';
 
 import Container from '../Container';
 import StyledButton from '../StyledButton';
 import StyledInput from '../StyledInput';
 import { Span } from '../Text';
+
+import { Envelope } from '@styled-icons/fa-solid/Envelope';
 
 class Newsletter extends React.Component {
   render() {

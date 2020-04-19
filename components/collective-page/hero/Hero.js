@@ -1,13 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Flex } from '@rebass/grid';
-import { Palette } from '@styled-icons/boxicons-regular/Palette';
-import { Camera } from '@styled-icons/feather/Camera';
-import { Github } from '@styled-icons/feather/Github';
-import { Globe } from '@styled-icons/feather/Globe';
-import { Settings } from '@styled-icons/feather/Settings';
-// Icons
-import { Twitter } from '@styled-icons/feather/Twitter';
 import { get } from 'lodash';
 import dynamic from 'next/dynamic';
 import { defineMessages, FormattedMessage, injectIntl } from 'react-intl';
@@ -39,6 +32,14 @@ import CollectiveColorPicker from './CollectiveColorPicker';
 import HeroAvatar from './HeroAvatar';
 import HeroBackground from './HeroBackground';
 import HeroTotalCollectiveContributionsWithData from './HeroTotalCollectiveContributionsWithData';
+
+import { Palette } from '@styled-icons/boxicons-regular/Palette';
+import { Camera } from '@styled-icons/feather/Camera';
+import { Github } from '@styled-icons/feather/Github';
+import { Globe } from '@styled-icons/feather/Globe';
+import { Settings } from '@styled-icons/feather/Settings';
+// Icons
+import { Twitter } from '@styled-icons/feather/Twitter';
 
 // Dynamic imports
 const HeroEventDetails = dynamic(() => import('./HeroEventDetails'));

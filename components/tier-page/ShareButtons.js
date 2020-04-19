@@ -1,12 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Flex } from '@rebass/grid';
-import { Clipboard } from '@styled-icons/feather/Clipboard';
-import { Facebook } from '@styled-icons/feather/Facebook';
-import { Linkedin } from '@styled-icons/feather/Linkedin';
-// Styled-icons
-import { Mail } from '@styled-icons/feather/Mail';
-import { Twitter } from '@styled-icons/feather/Twitter';
 import copy from 'copy-to-clipboard';
 import { defineMessages, injectIntl } from 'react-intl';
 
@@ -17,6 +11,13 @@ import Container from '../Container';
 import ExternalLink from '../ExternalLink';
 import StyledRoundButton from '../StyledRoundButton';
 import StyledTooltip from '../StyledTooltip';
+
+import { Clipboard } from '@styled-icons/feather/Clipboard';
+import { Facebook } from '@styled-icons/feather/Facebook';
+import { Linkedin } from '@styled-icons/feather/Linkedin';
+// Styled-icons
+import { Mail } from '@styled-icons/feather/Mail';
+import { Twitter } from '@styled-icons/feather/Twitter';
 
 const messages = defineMessages({
   shareTitle: {

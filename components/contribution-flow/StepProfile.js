@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Flex } from '@rebass/grid';
-import { Search } from '@styled-icons/octicons/Search';
 import themeGet from '@styled-system/theme-get';
 import { capitalize, get, omit, remove, uniqBy } from 'lodash';
 import { defineMessages, FormattedMessage, injectIntl } from 'react-intl';
@@ -18,6 +17,8 @@ import StyledInputField from '../StyledInputField';
 import StyledInputGroup from '../StyledInputGroup';
 import StyledRadioList from '../StyledRadioList';
 import { P } from '../Text';
+
+import { Search } from '@styled-icons/octicons/Search';
 
 const SearchIcon = styled(Search)`
   color: ${themeGet('colors.black.300')};

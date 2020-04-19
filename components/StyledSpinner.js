@@ -1,9 +1,10 @@
 import PropTypes from 'prop-types';
-import { LoaderAlt } from '@styled-icons/boxicons-regular/LoaderAlt';
 import styled from 'styled-components';
 import { space } from 'styled-system';
 
 import { rotating } from './StyledKeyframes';
+
+import { LoaderAlt } from '@styled-icons/boxicons-regular/LoaderAlt';
 
 /** A loading spinner using SVG + css animation. */
 const StyledSpinner = styled(LoaderAlt)`

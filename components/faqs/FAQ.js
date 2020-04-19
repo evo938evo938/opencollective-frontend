@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Box } from '@rebass/grid';
-import { ChevronDown } from '@styled-icons/feather/ChevronDown/ChevronDown';
-import { ChevronUp } from '@styled-icons/feather/ChevronUp/ChevronUp';
 import themeGet from '@styled-system/theme-get';
 import { FormattedMessage } from 'react-intl';
 import styled, { css } from 'styled-components';
@@ -10,6 +8,9 @@ import { size, space } from 'styled-system';
 
 import Container from '../Container';
 import { P } from '../Text';
+
+import { ChevronDown } from '@styled-icons/feather/ChevronDown/ChevronDown';
+import { ChevronUp } from '@styled-icons/feather/ChevronUp/ChevronUp';
 
 /** Main entry container */
 export const Entry = styled.details`

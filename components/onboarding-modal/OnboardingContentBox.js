@@ -1,8 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Box, Flex } from '@rebass/grid';
-import { Github } from '@styled-icons/fa-brands/Github';
-import { Twitter } from '@styled-icons/fa-brands/Twitter';
 import { Field } from 'formik';
 import { defineMessages, FormattedMessage, injectIntl } from 'react-intl';
 
@@ -15,6 +13,9 @@ import { H1, P } from '../../components/Text';
 
 import OnboardingProfileCard from './OnboardingProfileCard';
 import OnboardingSkipButton from './OnboardingSkipButton';
+
+import { Github } from '@styled-icons/fa-brands/Github';
+import { Twitter } from '@styled-icons/fa-brands/Twitter';
 
 class OnboardingContentBox extends React.Component {
   static propTypes = {

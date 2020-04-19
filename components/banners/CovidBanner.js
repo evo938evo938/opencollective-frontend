@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Flex } from '@rebass/grid';
-import { Close as _Close } from '@styled-icons/material/Close';
 import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
 
@@ -10,6 +9,8 @@ import { BANNER } from '../../lib/constants/dismissable-help-message';
 import Container from '../Container';
 import DismissibleMessage from '../DismissibleMessage';
 import StyledLink from '../StyledLink';
+
+import { Close as _Close } from '@styled-icons/material/Close';
 
 const SPONSORED_COLLECTIVE = 'SPONSORED_COLLECTIVE';
 

@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from '@apollo/react-hoc';
 import { Box, Flex } from '@rebass/grid';
-import { RadioButtonChecked } from '@styled-icons/material/RadioButtonChecked';
-import { RadioButtonUnchecked } from '@styled-icons/material/RadioButtonUnchecked';
 import themeGet from '@styled-system/theme-get';
 import gql from 'graphql-tag';
 import { get, truncate } from 'lodash';
@@ -29,6 +27,9 @@ import StyledInputAmount from './StyledInputAmount';
 import StyledMultiEmailInput from './StyledMultiEmailInput';
 import StyledSelectCreatable from './StyledSelectCreatable';
 import { H3 } from './Text';
+
+import { RadioButtonChecked } from '@styled-icons/material/RadioButtonChecked';
+import { RadioButtonUnchecked } from '@styled-icons/material/RadioButtonUnchecked';
 
 const MIN_AMOUNT = 5;
 const MAX_AMOUNT = 1000000;

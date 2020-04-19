@@ -4,8 +4,8 @@ import React from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import theme from '../../lib/theme';
-
 import { snapshotI18n } from '../../test/snapshot-helpers';
+
 import { MockAddFundsSourcePicker, MockAddFundsSourcePickerForUser } from '../AddFundsSourcePicker';
 
 describe('AddFundsSourcePicker component', () => {

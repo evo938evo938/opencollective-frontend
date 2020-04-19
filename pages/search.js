@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Flex } from '@rebass/grid';
-import { Search } from '@styled-icons/octicons/Search';
 import { withRouter } from 'next/router';
 import { ControlLabel, FormControl, FormGroup } from 'react-bootstrap';
 import { FormattedMessage } from 'react-intl';
@@ -20,6 +19,8 @@ import Page from '../components/Page';
 import Pagination from '../components/Pagination';
 import StyledLink from '../components/StyledLink';
 import { P } from '../components/Text';
+
+import { Search } from '@styled-icons/octicons/Search';
 
 const SearchInput = styled(FormControl)`
   &&& {

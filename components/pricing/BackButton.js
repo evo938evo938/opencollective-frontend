@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ArrowBack } from '@styled-icons/boxicons-regular/ArrowBack';
 import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
 
 import StyledButton from '../StyledButton';
 import { Span } from '../Text';
+
+import { ArrowBack } from '@styled-icons/boxicons-regular/ArrowBack';
 
 const Button = styled(StyledButton)`
   padding: 5px 12px;

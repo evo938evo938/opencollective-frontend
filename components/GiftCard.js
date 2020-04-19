@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Flex } from '@rebass/grid';
-import { Clock } from '@styled-icons/feather/Clock';
 import { FormattedDate, FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
 import { fontSize, height, width } from 'styled-system';
@@ -10,6 +9,8 @@ import Container from './Container';
 import Currency from './Currency';
 import Link from './Link';
 import { P, Span } from './Text';
+
+import { Clock } from '@styled-icons/feather/Clock';
 
 const WhiteLink = styled(Link)`
   color: white;

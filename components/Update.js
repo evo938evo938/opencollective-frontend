@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from '@apollo/react-hoc';
-import { Lock } from '@styled-icons/fa-solid';
 import gql from 'graphql-tag';
 import { get } from 'lodash';
 import { defineMessages, FormattedMessage, injectIntl } from 'react-intl';
@@ -17,6 +16,8 @@ import PublishUpdateBtnWithData from './PublishUpdateBtnWithData';
 import Role from './Role';
 import SmallButton from './SmallButton';
 import UpdateTextWithData from './UpdateTextWithData';
+
+import { Lock } from '@styled-icons/fa-solid';
 
 class Update extends React.Component {
   static propTypes = {

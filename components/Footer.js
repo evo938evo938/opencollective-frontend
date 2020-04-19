@@ -1,11 +1,5 @@
 import React from 'react';
 import { Box, Flex } from '@rebass/grid';
-import { InfoCircle } from '@styled-icons/boxicons-regular/InfoCircle';
-import { Github } from '@styled-icons/fa-brands/Github';
-import { Slack } from '@styled-icons/fa-brands/Slack';
-import { Twitter } from '@styled-icons/fa-brands/Twitter';
-import { Blog } from '@styled-icons/icomoon/Blog';
-import { Mail } from '@styled-icons/material/Mail';
 import { FormattedMessage } from 'react-intl';
 import styled from 'styled-components';
 
@@ -18,6 +12,13 @@ import ListItem from './ListItem';
 import StyledLink from './StyledLink';
 import StyledTooltip from './StyledTooltip';
 import { P, Span } from './Text';
+
+import { InfoCircle } from '@styled-icons/boxicons-regular/InfoCircle';
+import { Github } from '@styled-icons/fa-brands/Github';
+import { Slack } from '@styled-icons/fa-brands/Slack';
+import { Twitter } from '@styled-icons/fa-brands/Twitter';
+import { Blog } from '@styled-icons/icomoon/Blog';
+import { Mail } from '@styled-icons/material/Mail';
 
 const SocialLink = styled.a`
   align-items: center;

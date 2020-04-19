@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Flex } from '@rebass/grid';
-import { ExchangeAlt } from '@styled-icons/fa-solid/ExchangeAlt';
-import { MoneyCheck } from '@styled-icons/fa-solid/MoneyCheck';
 import themeGet from '@styled-system/theme-get';
 import { get, uniqBy } from 'lodash';
 import { FormattedDate, FormattedMessage } from 'react-intl';
@@ -25,6 +23,9 @@ import { withStripeLoader } from '../StripeProvider';
 import StyledCard from '../StyledCard';
 import StyledRadioList from '../StyledRadioList';
 import { P } from '../Text';
+
+import { ExchangeAlt } from '@styled-icons/fa-solid/ExchangeAlt';
+import { MoneyCheck } from '@styled-icons/fa-solid/MoneyCheck';
 
 const PaymentEntryContainer = styled(Container)`
   display: flex;

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import { Search } from '@styled-icons/octicons/Search';
 import themeGet from '@styled-system/theme-get';
 import { defineMessages, injectIntl } from 'react-intl';
 import styled from 'styled-components';
@@ -13,6 +12,8 @@ import StyledCard from './StyledCard';
 import StyledInput from './StyledInput';
 import StyledRadioList from './StyledRadioList';
 import { H4 } from './Text';
+
+import { Search } from '@styled-icons/octicons/Search';
 
 const SearchIcon = styled(Search)`
   color: ${themeGet('colors.black.300')};

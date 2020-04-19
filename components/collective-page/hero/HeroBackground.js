@@ -1,7 +1,6 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 import { Mutation } from '@apollo/react-components';
-import { Upload } from '@styled-icons/feather/Upload';
 import { get, has, set } from 'lodash';
 import dynamic from 'next/dynamic';
 import { FormattedMessage } from 'react-intl';
@@ -16,6 +15,7 @@ import StyledButton from '../../StyledButton';
 import { Span } from '../../Text';
 import { EditCollectiveBackgroundMutation } from '../graphql/mutations';
 
+import { Upload } from '@styled-icons/feather/Upload';
 import HeroBackgroundMask from '../images/HeroBackgroundMask.svg';
 
 const BASE_WIDTH = 1368;

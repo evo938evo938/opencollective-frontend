@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box, Flex } from '@rebass/grid';
-import { ArrowLeftCircle } from '@styled-icons/feather/ArrowLeftCircle';
-import { ArrowRightCircle } from '@styled-icons/feather/ArrowRightCircle';
 import { throttle } from 'lodash';
 import { Swipeable } from 'react-swipeable';
 import styled from 'styled-components';
 
 import Container from './Container';
+
+import { ArrowLeftCircle } from '@styled-icons/feather/ArrowLeftCircle';
+import { ArrowRightCircle } from '@styled-icons/feather/ArrowRightCircle';
 
 const CarouselContainer = styled(Container)`
   display: flex;

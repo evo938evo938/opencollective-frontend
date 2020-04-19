@@ -2,8 +2,6 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { isMemberOfTheEuropeanUnion } from '@opencollective/taxes';
 import { Box, Flex } from '@rebass/grid';
-import { InfoCircle } from '@styled-icons/boxicons-regular/InfoCircle';
-import { ArrowBack } from '@styled-icons/material/ArrowBack';
 import { find, get, set } from 'lodash';
 import { withRouter } from 'next/router';
 import { Button } from 'react-bootstrap';
@@ -46,6 +44,9 @@ import Webhooks from './sections/Webhooks';
 import EditReceivingSendingMoney from './EditReceivingSendingMoney';
 import EditUserEmailForm from './EditUserEmailForm';
 import Menu, { EDIT_COLLECTIVE_SECTIONS } from './Menu';
+
+import { InfoCircle } from '@styled-icons/boxicons-regular/InfoCircle';
+import { ArrowBack } from '@styled-icons/material/ArrowBack';
 
 class EditCollectiveForm extends React.Component {
   static propTypes = {

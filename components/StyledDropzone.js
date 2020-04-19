@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Box } from '@rebass/grid';
-import { Download as DownloadIcon } from '@styled-icons/feather/Download';
 import { isNil } from 'lodash';
 import { useDropzone } from 'react-dropzone';
 import { FormattedMessage } from 'react-intl';
@@ -14,6 +13,8 @@ import Container from './Container';
 import { getI18nLink } from './I18nFormatters';
 import StyledSpinner from './StyledSpinner';
 import { P } from './Text';
+
+import { Download as DownloadIcon } from '@styled-icons/feather/Download';
 
 const Dropzone = styled(Container)`
   border: 1px dashed #c4c7cc;
