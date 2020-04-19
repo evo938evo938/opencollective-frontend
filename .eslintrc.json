@@ -51,8 +51,8 @@
           // Packages.
           // Things that start with a letter (or digit or underscore), or `@` followed by a letter.
           ["^react$", "^prop-types$", "^@?\\w"],
-          // Lib & Server
-          ["(.*)/lib/", "(.*)/server/"],
+          // Libs
+          ["(.*)/lib/", "(.*)/server/", "(.*)/test/"],
           // Components
           ["(.*)/components/"],
           // Parent imports. Put `..` last.
@@ -62,7 +62,7 @@
           // Styles
           ["^.+\\.s?css$"],
           // Images
-          ["public/static/images", "^.+\\.svg$", "^.+\\.png$"]
+          ["^@styled-icons", "public/static/images", "^.+\\.svg$", "^.+\\.png$"]
         ]
       }
     ]
