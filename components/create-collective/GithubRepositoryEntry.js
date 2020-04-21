@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { Box, Flex } from '../Grid';
 import { Github } from '@styled-icons/fa-brands/Github';
 import { Star } from '@styled-icons/fa-solid/Star';
 
+import { Box, Flex } from '../Grid';
 import Container from '../Container';
 import { P, Span } from '../Text';
 import StyledRadioList from '../StyledRadioList';

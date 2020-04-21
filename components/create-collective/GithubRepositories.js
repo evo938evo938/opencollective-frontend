@@ -2,10 +2,10 @@ import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import themeGet from '@styled-system/theme-get';
-import { Flex } from '../Grid';
 import { Search } from '@styled-icons/octicons/Search';
 import { FormattedMessage, useIntl, defineMessages } from 'react-intl';
 
+import { Flex } from '../Grid';
 import { H4 } from '../Text';
 import Container from '../Container';
 import StyledCard from '../StyledCard';

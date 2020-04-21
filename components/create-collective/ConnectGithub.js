@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormattedMessage, defineMessages, injectIntl } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 import themeGet from '@styled-system/theme-get';
 import styled from 'styled-components';
 import { withRouter } from 'next/router';
@@ -24,20 +24,8 @@ const BackButton = styled(StyledButton)`
   font-size: ${themeGet('fontSizes.Paragraph')}px;
 `;
 
-const messages = defineMessages({
-  repoHeader: {
-    id: 'openSourceApply.GithubRepositories.title',
-    defaultMessage: 'Pick a repository',
-  },
-  back: {
-    id: 'Back',
-    defaultMessage: 'Back',
-  },
-});
-
 class ConnectGithub extends React.Component {
   static propTypes = {
-    intl: PropTypes.object.isRequired,
     router: PropTypes.object.isRequired,
     updateGithubInfo: PropTypes.func.isRequired,
   };
@@ -84,7 +72,6 @@ class ConnectGithub extends React.Component {
   };
 
   render() {
-    const { intl } = this.props;
     const { repositories, loadingRepos, error } = this.state;
 
     return (
@@ -92,7 +79,8 @@ class ConnectGithub extends React.Component {
         <Flex flexDirection="column" my={[2, 4]}>
           <Box textAlign="left" minHeight={['32px']} marginLeft={['none', '224px']}>
             <BackButton asLink onClick={() => window && window.history.back()}>
-              ←&nbsp;{intl.formatMessage(messages.back)}
+              ←&nbsp;
+              <FormattedMessage id="Back" defaultMessage="Back" />
             </BackButton>
           </Box>
           <Box mb={[2, 3]}>
@@ -103,7 +91,7 @@ class ConnectGithub extends React.Component {
               textAlign="center"
               color="black.900"
             >
-              {intl.formatMessage(messages.repoHeader)}
+              <FormattedMessage id="openSourceApply.GithubRepositories.title" defaultMessage="Pick a repository" />
             </H1>
           </Box>
           <Box textAlign="center" minHeight={['24px']}>
@@ -191,4 +179,4 @@ class ConnectGithub extends React.Component {
   }
 }
 
-export default injectIntl(withRouter(ConnectGithub));
+export default withRouter(ConnectGithub);

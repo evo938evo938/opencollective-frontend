@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { Flex, Box } from '@rebass/grid';
 import { URLSearchParams } from 'universal-url';
 import { FormattedMessage, defineMessages, useIntl } from 'react-intl';
 import themeGet from '@styled-system/theme-get';
 import styled from 'styled-components';
 
+import { Flex, Box } from '../Grid';
 import StyledButton from '../StyledButton';
 import StyledCheckbox from '../StyledCheckbox';
 import { P, H1 } from '../Text';
@@ -21,12 +21,6 @@ const BackButton = styled(StyledButton)`
 `;
 
 const messages = defineMessages({
-  header: { id: 'home.create', defaultMessage: 'Create a Collective' },
-  openSourceSubtitle: {
-    id: 'collective.subtitle.opensource',
-    defaultMessage: 'Open source projects are invited to join the Open Source Collective fiscal host.',
-  },
-  back: { id: 'Back', defaultMessage: 'Back' },
   acceptTermsOfFiscalSponsorship: {
     id: 'createCollective.acceptTermsOfFiscalSponsorship',
     defaultMessage: 'Please accept the terms of fiscal sponsorship',
@@ -61,17 +55,21 @@ const CreateOpenSourceCollective = () => {
       <Flex flexDirection="column" my={[2, 4]}>
         <Box textAlign="left" minHeight={['32px']} marginLeft={['none', '224px']}>
           <BackButton asLink onClick={() => window && window.history.back()}>
-            ←&nbsp;{formatMessage(messages.back)}
+            ←&nbsp;
+            <FormattedMessage id="Back" defaultMessage="Back" />
           </BackButton>
         </Box>
         <Box mb={[2, 3]}>
           <H1 fontSize={['H5', 'H3']} lineHeight={['H5', 'H3']} fontWeight="bold" textAlign="center" color="black.900">
-            {formatMessage(messages.header)}
+            <FormattedMessage id="home.create" defaultMessage="Create a Collective" />
           </H1>
         </Box>
         <Box textAlign="center" minHeight={['24px']}>
           <P fontSize="LeadParagraph" color="black.600" mb={2}>
-            {formatMessage(messages.openSourceSubtitle)}
+            <FormattedMessage
+              id="collective.subtitle.opensource"
+              defaultMessage="Open source projects are invited to join the Open Source Collective fiscal host."
+            />
           </P>
         </Box>
       </Flex>

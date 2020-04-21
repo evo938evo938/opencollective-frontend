@@ -1,7 +1,6 @@
 import React from 'react';
-
 import styled from 'styled-components';
-import { defineMessages, useIntl } from 'react-intl';
+import { defineMessages, FormattedMessage, useIntl } from 'react-intl';
 import themeGet from '@styled-system/theme-get';
 import { useRouter } from 'next/router';
 
@@ -47,8 +46,6 @@ const messages = defineMessages({
   },
   climate: { id: 'createCollective.category.climate', defaultMessage: 'For climate initiatives' },
   covid: { id: 'createCollective.category.covid', defaultMessage: 'For COVID-19 initiatives' },
-  header: { id: 'createCollective.header.create', defaultMessage: 'Create a Collective' },
-  examples: { id: 'createCollective.examples', defaultMessage: 'See examples' },
 });
 
 const CollectiveCategoryPicker = () => {
@@ -59,7 +56,7 @@ const CollectiveCategoryPicker = () => {
     <div>
       <Box mb={4} mt={5}>
         <H1 fontSize={['H5', 'H3']} lineHeight={['H5', 'H3']} fontWeight="bold" color="black.900" textAlign="center">
-          {formatMessage(messages.header)}
+          <FormattedMessage id="createCollective.header.create" defaultMessage="Create a Collective" />
         </H1>
       </Box>
       <Flex flexDirection="column" justifyContent="center" alignItems="center" mb={[5, 6]}>
@@ -84,7 +81,7 @@ const CollectiveCategoryPicker = () => {
                   </StyledButton>
                 </Link>
                 <ExamplesLink href="/discover?show=opensource" openInNewTab>
-                  {formatMessage(messages.examples)}
+                  <FormattedMessage id="createCollective.examples" defaultMessage="See examples" />
                 </ExamplesLink>
               </Flex>
             </Container>
@@ -109,11 +106,11 @@ const CollectiveCategoryPicker = () => {
                   }}
                 >
                   <StyledButton fontSize="13px" buttonStyle="primary" minHeight="36px" mt={[2, 3]} mb={3} px={3}>
-                    {formatMessage(messages.covid)}&nbsp;
+                    {formatMessage(messages.covid)}
                   </StyledButton>
                 </Link>
                 <ExamplesLink href="/discover?show=covid-19" openInNewTab>
-                  {formatMessage(messages.examples)}
+                  <FormattedMessage id="createCollective.examples" defaultMessage="See examples" />
                 </ExamplesLink>
               </Flex>
             </Container>
@@ -141,7 +138,7 @@ const CollectiveCategoryPicker = () => {
                   </StyledButton>
                 </Link>
                 <ExamplesLink href="/discover?show=community" openInNewTab>
-                  {formatMessage(messages.examples)}
+                  <FormattedMessage id="createCollective.examples" defaultMessage="See examples" />
                 </ExamplesLink>
               </Flex>
             </Container>

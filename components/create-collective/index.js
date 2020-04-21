@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Flex, Box } from '../Grid';
-import { defineMessages, injectIntl, FormattedMessage } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 import { graphql } from '@apollo/react-hoc';
 import { get } from 'lodash';
 import { withRouter } from 'next/router';
@@ -20,25 +20,13 @@ import { getErrorFromGraphqlException } from '../../lib/errors';
 import { parseToBoolean } from '../../lib/utils';
 import { Router } from '../../server/pages';
 
-const messages = defineMessages({
-  joinOC: {
-    id: 'collective.create.join',
-    defaultMessage: 'Join Open Collective',
-  },
-  createOrSignIn: {
-    id: 'collective.create.createOrSignIn',
-    defaultMessage: 'Create an account (or sign in) to start a collective.',
-  },
-});
-
 class CreateCollective extends Component {
   static propTypes = {
     host: PropTypes.object,
     LoggedInUser: PropTypes.object, // from withUser
     refetchLoggedInUser: PropTypes.func.isRequired, // from withUser
-    intl: PropTypes.object.isRequired,
-    createCollective: PropTypes.func.isRequired,
-    router: PropTypes.object.isRequired,
+    router: PropTypes.object.isRequired, // from withRouter
+    createCollective: PropTypes.func.isRequired, // addCreateCollectiveMutation
   };
 
   constructor(props) {
@@ -114,7 +102,7 @@ class CreateCollective extends Component {
   }
 
   render() {
-    const { LoggedInUser, intl, host, router } = this.props;
+    const { LoggedInUser, host, router } = this.props;
     const { error } = this.state;
     const { category, step, token } = router.query;
 
@@ -146,12 +134,15 @@ class CreateCollective extends Component {
           <Flex flexDirection="column" p={4} mt={2}>
             <Box mb={3}>
               <H1 fontSize="H3" lineHeight="H3" fontWeight="bold" textAlign="center">
-                {intl.formatMessage(messages.joinOC)}
+                <FormattedMessage id="collective.create.join" defaultMessage="Join Open Collective" />
               </H1>
             </Box>
             <Box textAlign="center">
               <P fontSize="Paragraph" color="black.600" mb={1}>
-                {intl.formatMessage(messages.createOrSignIn)}
+                <FormattedMessage
+                  id="collective.create.createOrSignIn"
+                  defaultMessage="Create an account (or sign in) to start a collective."
+                />
               </P>
             </Box>
           </Flex>
@@ -207,4 +198,4 @@ const addCreateCollectiveMutation = graphql(CREATE_COLLECTIVE, {
   options: { context: API_V2_CONTEXT },
 });
 
-export default injectIntl(withRouter(withUser(addCreateCollectiveMutation(CreateCollective))));
+export default withRouter(withUser(addCreateCollectiveMutation(CreateCollective)));
