@@ -16,7 +16,7 @@ const ACollectiveMutation = gql`
   }
 `;
 
-const AcceptReject = ({ collective, host }) => {
+const AcceptRejectButtons = ({ collective, host }) => {
   const [showRejectionModal, setShowRejectionModal] = useState(false);
   const [collectiveId, setcollectiveId] = useState(null);
   return (
@@ -55,7 +55,7 @@ const AcceptReject = ({ collective, host }) => {
   );
 };
 
-AcceptReject.propTypes = {
+AcceptRejectButtons.propTypes = {
   collective: PropTypes.shape({
     id: PropTypes.number,
     slug: PropTypes.string,
@@ -65,4 +65,4 @@ AcceptReject.propTypes = {
   }),
 };
 
-export default AcceptReject;
+export default AcceptRejectButtons;

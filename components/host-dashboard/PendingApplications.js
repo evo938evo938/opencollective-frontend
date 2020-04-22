@@ -18,7 +18,7 @@ import StyledHr from '../StyledHr';
 import ExternalLink from '../ExternalLink';
 import Avatar from '../Avatar';
 import MessageBox from '../MessageBox';
-import AcceptReject from './AcceptReject';
+import AcceptRejectButtons from './AcceptRejectButtons';
 import { getHostPendingApplicationsQuery } from '../../lib/graphql/queries';
 import { getErrorFromGraphqlException } from '../../lib/errors';
 
@@ -138,7 +138,7 @@ class HostPendingApplications extends React.Component {
                   <Check size={39} />
                 </Box>
               ) : (
-                <AcceptReject collective={c} host={this.props.hostCollectiveSlug} />
+                <AcceptRejectButtons collective={c} host={this.props.hostCollectiveSlug} />
               )}
             </Flex>
           </StyledCard>

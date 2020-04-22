@@ -4,17 +4,15 @@ import classNames from 'classnames';
 import styled from 'styled-components';
 
 import AppRejectionReasonModal from '../components/host-dashboard/AppRejectionReasonModal';
-import AcceptReject from '../components/host-dashboard/AcceptReject';
+import AcceptRejectButtons from './host-dashboard/AcceptRejectButtons';
 
 const logo = '/static/images/opencollective-icon.svg';
 
-const AcceptReject1 = styled.div`
+const AcceptRejectBanner = styled.div`
   display: flex;
   font-size: 1em;
-  margin: 1em;
-  padding: 0.25em 1em;
-  width: 200px;
-  background: #009e4a;
+  width: 300px;
+  align-items: center;
 `;
 
 class NotificationBar extends React.Component {
@@ -152,8 +150,8 @@ class NotificationBar extends React.Component {
             <p className="description">{description}</p>
 
             {isHostAdmin && (
-              <AcceptReject1>
-                <AcceptReject collective={collective} host={host} />
+              <AcceptRejectBanner>
+                <AcceptRejectButtons collective={collective} host={host} />
                 {this.state.showRejectionModal && (
                   <AppRejectionReasonModal
                     show={this.state.showRejectionModal}
@@ -162,7 +160,7 @@ class NotificationBar extends React.Component {
                     hostCollectiveSlug={host.slug}
                   />
                 )}
-              </AcceptReject1>
+              </AcceptRejectBanner>
             )}
             {actions && (
               <div className="actions">
