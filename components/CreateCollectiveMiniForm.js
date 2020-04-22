@@ -150,7 +150,15 @@ const CreateUserMutation = gql`
  * A mini-form to create collectives/orgs/users. Meant to be embed in popups or
  * small component where we want to provide just the essential fields.
  */
-const CreateCollectiveMiniForm = ({ type, onCancel, onSuccess, addLoggedInUserAsAdmin, LoggedInUser }) => {
+const CreateCollectiveMiniForm = ({
+  type,
+  onCancel,
+  onSuccess,
+  addLoggedInUserAsAdmin,
+  LoggedInUser,
+  email = '',
+  name = '',
+}) => {
   const isUser = type === CollectiveType.USER;
   const isCollective = type === CollectiveType.COLLECTIVE;
   const isOrganization = type === CollectiveType.ORGANIZATION;
@@ -159,9 +167,9 @@ const CreateCollectiveMiniForm = ({ type, onCancel, onSuccess, addLoggedInUserAs
   const { formatMessage } = useIntl();
 
   const initialValues = {
-    members: [{ member: { email: '', name: '' } }],
-    email: '',
-    name: '',
+    members: [{ member: { email, name } }],
+    email,
+    name,
     website: '',
   };
 
@@ -331,6 +339,10 @@ CreateCollectiveMiniForm.propTypes = {
   addLoggedInUserAsAdmin: PropTypes.bool,
   /** @ignore from withUser */
   LoggedInUser: PropTypes.object,
+  /** The collective email */
+  email: PropTypes.string,
+  /** The collective name */
+  name: PropTypes.string,
 };
 
 export default withUser(CreateCollectiveMiniForm);
