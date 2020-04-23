@@ -13,7 +13,7 @@ import StyledTooltip from '../StyledTooltip';
 import Link from '../Link';
 import { payExpenseMutation } from './graphql/mutations';
 
-class PayExpenseBtn extends React.Component {
+class PayExpenseBtnLegacy extends React.Component {
   static propTypes = {
     expense: PropTypes.object.isRequired,
     collective: PropTypes.object.isRequired,
@@ -170,4 +170,4 @@ class PayExpenseBtn extends React.Component {
 }
 
 const addMutation = graphql(payExpenseMutation);
-export default addMutation(injectIntl(PayExpenseBtn));
+export default addMutation(injectIntl(PayExpenseBtnLegacy));
